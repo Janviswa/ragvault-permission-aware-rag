@@ -1,0 +1,1652 @@
+{
+  "1": {
+    "user_input": "What does the Information Security Policy require for a security exception?",
+    "scores": {
+      "faithfulness": 0.7142857142857143,
+      "answer_relevancy": 0.7258290523863122,
+      "context_precision": 0.5833333333041666,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.12499999984374999,
+      "noise_sensitivity": 0.0
+    },
+    "response": "A security exception needs a named owner, business justification, compensating safeguards, an expiry date, and written Security approval. It does not waive tenant boundaries or authorization checks.",
+    "reference": "The Information Security Policy requires an exception to identify an owner, business justification, compensating safeguards, an expiry, and written Security approval; it cannot waive tenant boundaries or authorization checks.",
+    "retrieved_contexts": [
+      "Information Security Policy\nDocument owner: Chief Information Security Officer\nReview frequency: Annual and after a material security incident\nClassification: Internal\n\nPurpose\nThis policy establishes the minimum safeguards for company information and systems. It is a policy statement, not a technical guarantee that a specific control has been deployed.\n\nScope\nEmployees, contractors, service providers, company-managed endpoints, cloud workloads, and information processed for a customer are in sc",
+      "be committed to source control or copied into support tickets.\n\nExceptions\nAn exception requires a named owner, business justification, compensating safeguards, expiry date, and written approval by Security. Temporary operational convenience does not waive tenant boundaries or authorization checks.\n\nAudit and review\nAccess decisions, privileged changes, and approved exceptions must be traceable to an actor and time. Security reviews exceptions monthly and this policy annually.\n\nOperational contr",
+      "nternal exception details to users.\n\nOperating procedure\nDocument data flows and trust boundaries.\nAdd tests for allowed, denied, and malformed requests.\nReview dependencies and configuration changes.\nRun static checks and the focused test suite.\nRecord residual risk before release.\n\nExamples\nA UI-hidden admin button still requires backend authorization.\nA validation error omits passwords and tokens from its response.\n\nExceptions\nA security exception has an owner, compensating control, and expir",
+      "ons monitors signals. System owners ensure events are attributable and protected.\n\nRequirements\nRecord actor identity, tenant, action, target resource, outcome, and timestamp where applicable. Denials must not disclose protected content. Logs must not contain passwords, bearer tokens, API keys, or full restricted document bodies. Restrict log access and protect records against unauthorized modification. Alert on repeated denials, unexpected privileged changes, and suspicious cross-tenant attempt",
+      "e-ingest through the tenant-aware document workflow.\nIf the API is unavailable, users receive a service notice rather than an alternate unsecured export.\nExceptions\nEmergency access is time-limited and logged.\n\n\nA recovery exception names the approver and compensating monitoring.\nAudit evidence and review\nRecord recovery point, component versions, verification results, and downtime.\nRun a tabletop exercise annually and track corrective actions."
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 9,
+        "title": "Information Security Policy",
+        "file_name": "information-security-policy.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 9,
+        "title": "Information Security Policy",
+        "file_name": "information-security-policy.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 27,
+        "title": "Secure Software Development Standard",
+        "file_name": "secure-software-development-standard.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 5,
+        "title": "Business Continuity and Recovery Plan",
+        "file_name": "business-continuity-recovery-plan.pdf",
+        "chunk_index": 3
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "2": {
+    "user_input": "According to the Access Control Policy, how do authentication and authorization differ?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8299916442901759,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.6666666644444444,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Authentication verifies who the user is. Authorization decides what that authenticated identity may do.",
+    "reference": "Authentication verifies identity, while authorization determines what an authenticated identity is permitted to do.",
+    "retrieved_contexts": [
+      "Access Control Policy\nDocument owner: Identity and Access Management\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nDefine how users receive, use, review, and lose access to business applications and documents. Applies to workforce identities and tenant-scoped customer workspaces.\n\nDefinitions and roles\nAuthentication verifies identity; authorization decides what an authenticated identity may do. A resource owner approves business access. Tenant administrators manage accoun",
+      "tenant claim as a substitute for membership.\nAdministrative account creation is tenant-scoped and does not return password hashes.\nAuthentication failures use non-disclosing responses and are monitored for abuse.\nUsers report suspected token exposure so supported sessions can be revoked.\nPassword reset and account recovery require an approved identity-verification path.\nPrivileged access receives stronger authentication where the deployment supports it.\nShared credentials are prohibited unless",
+      "only within their own tenant scope.\nAccess requests record an intended resource and require authorized review before grant.\nAudit and security panels display records returned by protected administrative endpoints.\nProduct availability and model responses depend on the configured deployment services.\nThe API remains authoritative when client state or UI controls are stale.\nUnavailable model output does not change document authorization.\nUsers can distinguish an answer from its listed source recor",
+      "siness access. Tenant administrators manage accounts and grants inside their own tenant. Security validates privileged-role assignments.\n\nRules\nDeny access by default. Grant the least privilege needed for a named purpose. Use individual accounts; shared accounts require a documented exception and compensating audit controls. Role membership is not a substitute for tenant validation. A request for one document does not confer access to neighboring documents.\n\nProcedure\nThe requester states the re",
+      "and any retrieval ACL cache or index. The application must perform an authorization check before releasing retrieved content. Exceptions are time-bounded, approved, and reviewed.\n\nEvidence\nRecord request, approval or denial, grant, change, and revoke events. Reviewers verify actor, tenant, resource, scope, and timestamp. Owner: IAM. Review frequency: annual, with quarterly access reviews.\n\nDecision and review controls\nAuthorization uses the authenticated identity and authoritative tenant members"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 20,
+        "title": "Authentication and Password Standard",
+        "file_name": "authentication-password-policy.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 3,
+        "title": "RAGVault Product Overview",
+        "file_name": "ragvault-product-overview.txt",
+        "chunk_index": 6
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 3
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "3": {
+    "user_input": "What are the distinct mover and leaver actions in the Employee Access Management Standard?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7277251995124369,
+      "context_precision": 0.6791666666496875,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "For a mover, review existing entitlements, remove access no longer needed, then provision approved new access. For a leaver, disable the account at the effective time, revoke sessions and active grants where supported, and transfer records to an authorized owner.",
+    "reference": "A mover's access is reviewed, obsolete grants are removed, and newly approved access is provisioned. A leaver's account is disabled at the effective time, sessions and active grants are revoked where supported, and business records are transferred to an authorized owner.",
+    "retrieved_contexts": [
+      "Employee Access Management Standard\nDocument owner: People Operations and Identity Team\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nThis standard describes workforce joiner, mover, and leaver controls for internal systems. It does not replace customer-tenant administration.\n\nRoles\nThe hiring manager confirms role and start date. People Operations supplies authoritative employment status. IAM provisions and removes identities. The application owner maps approved duties to",
+      "Employee Access Lifecycle Guide\nDocument owner: Identity Operations\nReview frequency: Annual\nClassification: Internal\nPurpose\nProvide operational instructions for provisioning, changing, and removing employee application access.\nScope and definitions\nThis guide covers workforce accounts in company-managed applications. A joiner is a newly authorized worker; a mover changes duties; a leaver's employment ends. Customer tenant accounts remain under the tenant administrator's authority.\nRoles\nThe ma",
+      "iles new-hire and termination notices against the authoritative roster.\nProvisioners verify tenant membership independently of user-supplied request fields.\nMoved employees lose obsolete grants before unrelated new access is added.\nLeaver processing includes active sessions and document-specific temporary grants.\nService credentials are reviewed separately from the employee's personal account.\nEvidence includes the approved request, granted role, completion time, and reviewer.\nManagers certify a",
+      "revoke sessions and temporary grants where supported, and transfer business records to an authorized owner. Confirm completion and notify the manager. Escalate a high-risk termination to Security for coordinated containment.\nExceptions and audit\nUrgent access is still approved, scoped, and time-limited. Record requester, approver, account, target system, role, effective time, and completion. Identity Operations reconciles leaver notifications daily and managers certify access quarterly.\nOperati",
+      "and require the user to complete authentication setup. Do not accept tenant ID or role claims supplied by the applicant as approval evidence.\nMover steps\nObtain the new manager-approved duties and effective date. Review current access, remove grants no longer needed, then add the approved role. Verify that the change did not expand access to unrelated tenants or documents.\nLeaver steps\nUse the authoritative termination time. Disable the account, revoke sessions and temporary grants where suppor"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 11,
+        "title": "Employee Access Management Standard",
+        "file_name": "employee-access-management.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 25,
+        "title": "Employee Access Lifecycle Guide",
+        "file_name": "employee-access-lifecycle.docx",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 11,
+        "title": "Employee Access Management Standard",
+        "file_name": "employee-access-management.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 25,
+        "title": "Employee Access Lifecycle Guide",
+        "file_name": "employee-access-lifecycle.docx",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 25,
+        "title": "Employee Access Lifecycle Guide",
+        "file_name": "employee-access-lifecycle.docx",
+        "chunk_index": 2
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "4": {
+    "user_input": "How must Confidential information be handled under the Data Classification Standard?",
+    "scores": {
+      "faithfulness": 0.25,
+      "answer_relevancy": 0.66745887923396,
+      "context_precision": 0.6388888888675925,
+      "context_recall": 0.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Confidential information requires explicit need-to-know authorization, encryption, and access logging. The classification label itself does not grant permission.",
+    "reference": "Confidential information requires need-to-know authorization, encryption, and access logging; classification labels do not grant access.",
+    "retrieved_contexts": [
+      "Data Classification and Handling Standard\nDocument owner: Data Governance\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nProvide handling rules for company and customer information wherever it is stored, transmitted, indexed, or used in an AI workflow.\n\nDefinitions\nPublic information is approved for unrestricted release. Internal information is non-public operational material. Confidential information could cause material harm if disclosed. Restricted information includes r",
+      "explicit need-to-know authorization, encryption, and access logging. Credentials and authentication secrets must not be placed in documents intended for retrieval. Classification labels do not grant permission: tenant and document authorization still apply.\n\nProcedure and examples\nBefore sharing or indexing content, confirm ownership, classification, permitted audience, and retention. A customer incident report is Confidential; a public product brochure is Public only after approval; an access",
+      "Data Privacy Standard\nDocument owner: Privacy Office\nReview frequency: Annual\nClassification: Confidential\n\nPurpose and scope\nProtect personal data throughout collection, indexing, retrieval, support, evaluation, and disposal.\n\nDefinitions and roles\nPersonal data relates to an identified or identifiable person. The business owner states the purpose. Privacy advises on lawful use and data-subject obligations. System owners apply access, minimization, retention, and incident safeguards.\n\nRules\nCol",
+      "rm if disclosed. Restricted information includes regulated personal data, credentials, and especially sensitive customer content.\n\nRoles\nThe information owner assigns classification. System owners implement safeguards. Users follow handling restrictions. Privacy and Security advise on regulated or ambiguous data.\n\nRules\nUse only the minimum information necessary. Internal data stays in approved workspaces. Confidential and Restricted data require explicit need-to-know authorization, encryption,",
+      "ce-data use. Security reviews access boundaries and threat controls. Privacy assesses personal data. Human reviewers validate consequential output.\n\nRules\nUse only approved models and disclosed data flows. Minimize prompt data and exclude credentials and information outside the user's authorization. Treat retrieved text as untrusted input; instructions embedded in a document cannot override system policy or permissions. Cite or identify sources where the product supports it. A generated response"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 12,
+        "title": "Data Classification and Handling Standard",
+        "file_name": "data-classification.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 12,
+        "title": "Data Classification and Handling Standard",
+        "file_name": "data-classification.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 19,
+        "title": "Data Privacy Standard",
+        "file_name": "data-privacy.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 12,
+        "title": "Data Classification and Handling Standard",
+        "file_name": "data-classification.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 17,
+        "title": "AI Use and Governance Standard",
+        "file_name": "ai-governance.txt",
+        "chunk_index": 1
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "5": {
+    "user_input": "What sequence does the Incident Response Playbook prescribe after a suspected compromise?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.30833577912009336,
+      "context_precision": 0.8874999999778125,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Record the report and scope, triage severity, preserve restricted evidence, contain the threat, eradicate the cause, validate recovery, then document lessons and corrective actions.",
+    "reference": "The playbook orders response as report and scope recording, triage, evidence preservation, containment, eradication, validated recovery, and a lessons-learned review with tracked corrective actions.",
+    "retrieved_contexts": [
+      "Incident Response Playbook\nDocument owner: Security Operations\nReview frequency: Every six months and after each significant incident\nClassification: Confidential\n\nPurpose and scope\nCoordinate response to suspected compromise, unauthorized disclosure, service abuse, or loss of availability. Preserve evidence and limit harm; this playbook does not replace applicable legal notification obligations.\n\nRoles\nAny workforce member reports a suspected incident to the Security Operations channel. The inc",
+      "relevant logs and timestamps with access restricted to responders.\n3. Contain by disabling compromised identities, revoking exposed credentials, isolating affected workloads, or suspending a risky integration. Preserve evidence before destructive cleanup when safe.\n4. Eradicate the cause, restore from verified sources, and validate authorization and monitoring.\n5. The incident commander approves recovery. Record decisions, impact, owners, and follow-up actions.\n6. Conduct a lessons-learned revie",
+      "acy contacts.\nEach corrective action has an owner, risk statement, due date, and closure evidence.\nResponders avoid copying restricted evidence into broad channels.\nContainment decisions record expected service and customer impact.\nThe incident owner confirms each corrective action is closed.",
+      "low-up actions.\n6. Conduct a lessons-learned review and track corrective actions to completion.\n\nExceptions and audit\nEmergency containment may precede normal change approval; record rationale and review it afterward. Security Operations maintains an incident timeline and access-controlled evidence log. Review frequency is semiannual and after significant incidents.\n\nOperational decision points\nThe incident commander assigns a severity, evidence custodian, and communication lead.\nContainment act",
+      "cident to the Security Operations channel. The incident commander assigns severity and coordinates response. System owners contain affected services. Privacy and Legal assess data and notification obligations. Communications approves external statements.\n\nProcedure\n1. Record reporter, time observed, affected system, tenant if known, and indicators; do not include unnecessary personal data in broad channels.\n2. Triage scope and severity. Preserve relevant logs and timestamps with access restricte"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 13,
+        "title": "Incident Response Playbook",
+        "file_name": "incident-response.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 13,
+        "title": "Incident Response Playbook",
+        "file_name": "incident-response.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 13,
+        "title": "Incident Response Playbook",
+        "file_name": "incident-response.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 13,
+        "title": "Incident Response Playbook",
+        "file_name": "incident-response.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 13,
+        "title": "Incident Response Playbook",
+        "file_name": "incident-response.txt",
+        "chunk_index": 1
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "6": {
+    "user_input": "When a document reaches its retention expiry, what must happen to its derived vector chunks and backups?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.23113679032939952,
+      "context_precision": 0.8041666666465626,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "After checking for a legal hold, delete the source and derived indexes, verify deletion, and record completion. Immutable backups age out under their approved lifecycle; immediate physical erasure from them must not be claimed.",
+    "reference": "The retention process checks for a hold, deletes the source and derived indexes, verifies and records deletion, and lets backups age out under their approved lifecycle without claiming immediate erasure from immutable backups.",
+    "retrieved_contexts": [
+      "ion covers the source object, extracted text, and derived vector points.\nThe operator records which systems were checked and any inaccessible replica.\nImmutable backup copies expire under the documented backup lifecycle.\nA deletion receipt must distinguish completed system deletion from backup aging.\nRestores reapply current retention and access policy before users can retrieve content.\nOwners re-check holds immediately before scheduled disposal.\nDeletion evidence names the source and every deri",
+      "ed.\nThe post-retrieval authorization check denies stale vector metadata after expiry.\nAn extension creates a new approved time window rather than silently prolonging access.\nAudit evidence records grant, expiry, early revoke, and synchronization outcome.",
+      "Document Retention and Disposal Schedule\nDocument owner: Records Management\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nSet lifecycle rules for business documents, extracted text, vector chunks, audit evidence, and backups. A legal hold or customer contract overrides routine deletion.\n\nRoles and definitions\nThe record owner assigns a retention category. Records Management maintains the schedule. System owners ensure deletion covers primary stores, search indexes, and eli",
+      "er the approved backup lifecycle; do not claim immediate physical erasure from immutable backups.\n\nExamples\nAn incident evidence package follows the incident/legal retention instruction, not the ordinary working-document schedule. A superseded policy is archived according to its controlled-record category. A derived embedding is not exempt merely because it is not human-readable.\n\nExceptions\nRecords Management and Legal approve a documented extension with reason, owner, and review date. Suspende",
+      "ion covers primary stores, search indexes, and eligible replicas. Legal issues and releases holds.\n\nRules and procedure\nAt creation, label the record type, owner, and retention trigger. Retain only for the approved business, legal, or contractual period. At expiry, confirm there is no active hold, then delete the source document and derived indexes through the supported deletion workflow. Verify deletion and record completion. Backups age out under the approved backup lifecycle; do not claim imm"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 14,
+        "title": "Document Retention and Disposal Schedule",
+        "file_name": "document-retention.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 18,
+        "title": "Temporary Access Management Standard",
+        "file_name": "temporary-access-management.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 14,
+        "title": "Document Retention and Disposal Schedule",
+        "file_name": "document-retention.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 14,
+        "title": "Document Retention and Disposal Schedule",
+        "file_name": "document-retention.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 14,
+        "title": "Document Retention and Disposal Schedule",
+        "file_name": "document-retention.txt",
+        "chunk_index": 1
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "7": {
+    "user_input": "Which device and network safeguards does the Remote Work Security Standard require?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6106394488801311,
+      "context_precision": 0.8874999999778125,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Use a supported managed device with disk encryption, screen lock, endpoint protection, and current updates. Use approved identity and network controls; public Wi-Fi alone is not trusted.",
+    "reference": "Remote work requires a supported managed device with encryption, screen lock, endpoint protection, current updates, and approved identity/network controls; public Wi-Fi by itself is not trusted.",
+    "retrieved_contexts": [
+      "Remote Work Security Standard\nDocument owner: Endpoint Security\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nSet safeguards for access from home, travel, and other untrusted networks using workforce-managed devices.\n\nRoles\nUsers secure their workspace and promptly report loss. IT maintains endpoint protections. Managers approve business travel needs. Security responds to suspected device or credential compromise.\n\nRequirements\nUse a supported, managed device with disk enc",
+      "with equivalent safeguards. A personal device is not an automatic exception to managed-device requirements.\n\nAudit\nEndpoint compliance is monitored centrally; access anomalies are reviewed by Security. Owner: Endpoint Security; review annually.\n\nRemote-work operating checks\nUsers connect through approved identity controls and do not share active sessions.\nThe endpoint reports supported encryption and current security updates.\nSensitive information is not copied to an unmanaged personal device f",
+      "on is not copied to an unmanaged personal device for convenience.\nUsers verify the recipient and classification before screen sharing or printing.\nLost devices are reported promptly so administrators can revoke access where supported.\nPublic networks require the approved protected connection before sensitive work.\nManagers review exceptions for device ownership, scope, and an explicit expiry.\nUsers lock unattended devices before leaving a work area.\nSupport requests exclude screenshots containin",
+      "ents\nUse a supported, managed device with disk encryption, screen lock, endpoint protection, and current security updates. Connect through approved identity and network controls; public Wi-Fi alone is not a trusted boundary. Do not let family members or visitors use an authenticated session. Keep printed Confidential material secured and retrieve it from shared printers. Avoid storing customer data locally unless an approved workflow requires it.\n\nProcedure\nBefore travel, verify device updates,",
+      "Procedure\nBefore travel, verify device updates, recovery contacts, and multifactor authentication. Report a lost device immediately with last-known time and data access. If a device may be compromised, stop using it for sensitive work and follow incident response; do not wipe it before responders advise unless necessary to prevent active harm.\n\nExceptions\nAn inaccessible network or accommodation need is handled through the approved support path with equivalent safeguards. A personal device is"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 15,
+        "title": "Remote Work Security Standard",
+        "file_name": "remote-work-security.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 15,
+        "title": "Remote Work Security Standard",
+        "file_name": "remote-work-security.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 15,
+        "title": "Remote Work Security Standard",
+        "file_name": "remote-work-security.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 15,
+        "title": "Remote Work Security Standard",
+        "file_name": "remote-work-security.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 15,
+        "title": "Remote Work Security Standard",
+        "file_name": "remote-work-security.txt",
+        "chunk_index": 2
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "8": {
+    "user_input": "May an employee probe another tenant's documents as an acceptable-use test?",
+    "scores": {
+      "faithfulness": 0.6666666666666666,
+      "answer_relevancy": 0.42150534362039965,
+      "context_precision": 0.9166666666361111,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.14285714285714285
+    },
+    "response": "No. Users must not bypass controls or attempt to retrieve another tenant's content. Testing requires explicit written authorization, scope, time limit, and a contact.",
+    "reference": "Acceptable use prohibits attempting to retrieve another tenant's content. Security testing is permitted only when explicitly authorized in writing with scope, time limits, and a contact.",
+    "retrieved_contexts": [
+      "to required role and tenant scope.\nValidate request schemas before database writes.\nApply object-level checks to every identifier.\nReturn stable 401, 403, 404, and 422 behavior as appropriate.\nAudit sensitive mutations without storing secrets.\n\nExamples\nAn unknown document ID cannot be used to probe a neighboring tenant.\nAn oversized RAG question is rejected before retrieval.\n\nExceptions\nA versioned compatibility exception is bounded and monitored.\nUnsupported methods remain unavailable.\n\nAudit",
+      "ons. Answers may be incomplete or incorrect; users should inspect cited sources. RAGAS measures answer and retrieval quality, not authorization security. Tenant isolation, access revocation, and leakage prevention require dedicated security tests.\n\nExceptions and audit\nUse only approved tenant content and models. Product changes to indexing, retrieval, context construction, or permissions require engineering and security review. Sensitive administration and question activity are recorded where t",
+      "enant document authorization. Location: backend/tests/test_acl.py. Result: PASS.\n- test_cross_tenant_retrieved_document_is_removed \u2014 Removes another tenant's retrieved result. Location: backend/tests/test_rag_security.py. Result: PASS.\n- test_pipeline_excludes_cross_tenant_document \u2014 Excludes cross-tenant documents in the pipeline. Location: backend/tests/test_rag_pipeline.py. Result: PASS.\n- test_cross_tenant_access_is_denied_and_recorded \u2014 Denies and records a cross-tenant attempt. Location: b",
+      "nated with legal holds and derived-index disposal.\nCross-tenant content is never a permitted source for answering another tenant.\nPrivacy reviews changes in audience or model provider before production use.\nUnintended disclosure is routed to incident response for impact assessment.\nThe owner documents whether derived text remains personal data.\nEvaluation results avoid direct identifiers unless approved.\nDeletion and correction requests are tracked to a disposition.",
+      "t to the LLM or response.\n\nOperating procedure\nCreate tenant-scoped records and vector metadata.\nPropagate authenticated identity into retrieval.\nTest same-tenant allowed and cross-tenant denied cases.\nRevoke access in the database and synchronize ACL metadata.\nAudit denials without disclosing protected contents.\n\nExamples\nAn administrator can administer only their own tenant.\nA matching user ID in a different tenant does not grant access.\n\nExceptions\nSupport access is explicitly approved, scope"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 28,
+        "title": "API Security Standard",
+        "file_name": "api-security-standard.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 3,
+        "title": "RAGVault Product Overview",
+        "file_name": "ragvault-product-overview.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 26,
+        "title": "RAGVault Security Test Inventory",
+        "file_name": "security-test-inventory.txt",
+        "chunk_index": 7
+      },
+      {
+        "document_id": 19,
+        "title": "Data Privacy Standard",
+        "file_name": "data-privacy.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 36,
+        "title": "Customer Data Isolation Standard",
+        "file_name": "customer-data-isolation-standard.txt",
+        "chunk_index": 2
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "9": {
+    "user_input": "How does the AI Use and Governance Standard treat instructions found inside retrieved documents?",
+    "scores": {
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.47306037673555235,
+      "context_precision": 0.8333333332916666,
+      "context_recall": 0.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Retrieved text is untrusted input. Instructions embedded in it cannot override system policy or user permissions.",
+    "reference": "The AI standard treats retrieved text as untrusted; document-embedded instructions cannot override system policy or authorization.",
+    "retrieved_contexts": [
+      "AI Use and Governance Standard\nDocument owner: AI Governance Council\nReview frequency: Annual and after material model or data-flow changes\nClassification: Internal\n\nPurpose and scope\nGovern use of generative AI and retrieval-augmented generation for company work. Applies to prompts, retrieved sources, generated responses, evaluation, and model-provider integrations.\n\nRoles\nThe use-case owner documents purpose and impact. Data owners approve source-data use. Security reviews access boundaries an",
+      "AI Model Change and Evaluation Standard\nDocument owner: AI Governance and Platform Engineering\nReview frequency: Annual\nClassification: Internal\n\nPurpose\nControl changes to model, prompt, retrieval settings, and evaluation methodology.\n\nScope\nApplies to RAG answer generation, RAGAS evaluators, datasets, references, and indexed evaluation sources.\n\nDefinitions\nControl owner: the role accountable for implementation and evidence.\nException: a documented, approved, and time-bounded deviation.\n\nRoles",
+      "context and response. Re-run only changed samples and preserve prior artifacts.\n\nExceptions and audit\nMaterial changes require review by Security, Privacy, and the use-case owner. Keep evaluation data free of secrets and record approvals, model changes, and incidents. Owner: AI Governance Council; review annually and on material change.\n\nOperational safeguards\nUse-case owners document model provider, data flow, intended audience, and limitations.\nRetrieved documents are evidence to evaluate, ne",
+      "urpose, and authorized transfer method.\nAI evaluation uses synthetic personnel examples unless real data is explicitly approved.\nCorrections are routed to the system of record owner rather than copied into side files.\nTemporary review access names the individual reviewer and an expiry.\nPeople Operations verifies access removal when a case owner changes roles or leaves.\nAn approved transfer records the recipient and business purpose.\nGeneral role membership does not expose sensitive case files.\nA",
+      "Data Classification and Handling Standard\nDocument owner: Data Governance\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nProvide handling rules for company and customer information wherever it is stored, transmitted, indexed, or used in an AI workflow.\n\nDefinitions\nPublic information is approved for unrestricted release. Internal information is non-public operational material. Confidential information could cause material harm if disclosed. Restricted information includes r"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 17,
+        "title": "AI Use and Governance Standard",
+        "file_name": "ai-governance.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 38,
+        "title": "AI Model Change and Evaluation Standard",
+        "file_name": "ai-model-change-evaluation-standard.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 17,
+        "title": "AI Use and Governance Standard",
+        "file_name": "ai-governance.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 2,
+        "title": "Employee Records Handling Standard",
+        "file_name": "employee-records-handling.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 12,
+        "title": "Data Classification and Handling Standard",
+        "file_name": "data-classification.txt",
+        "chunk_index": 0
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "10": {
+    "user_input": "If a temporary grant is expired but a stale vector ACL still lists the user, should the document enter the LLM context?",
+    "scores": {
+      "faithfulness": 0.6666666666666666,
+      "answer_relevancy": 0.5182947627197972,
+      "context_precision": 0.99999999998,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.3333333333333333
+    },
+    "response": "No. Expiry is checked on every authorization decision, and the post-retrieval check must deny the document even if vector metadata is stale.",
+    "reference": "An expired grant must be denied by the authoritative post-retrieval authorization check even if a stale vector ACL still lists the user.",
+    "retrieved_contexts": [
+      "ed.\nThe post-retrieval authorization check denies stale vector metadata after expiry.\nAn extension creates a new approved time window rather than silently prolonging access.\nAudit evidence records grant, expiry, early revoke, and synchronization outcome.",
+      "completion time, and reviewer.\nManagers certify active access against current duties.\nExpired temporary grants are not renewed automatically.\nIAM records the completion time for each lifecycle change.",
+      "ch candidate using database authorization before context assembly. The LLM receives only the filtered context, and the route records a query audit event.\n\nOperations and failure modes\nDocument updates require re-ingestion; permission changes require ACL synchronization. Expired or revoked access must fail the database check even if vector metadata is stale. Monitor PostgreSQL, Qdrant, model-provider errors, ingestion failures, and audit persistence.\n\nExceptions and audit\nDo not bypass authorizat",
+      "evocation, remove the grant, commit the change, synchronize the retrieval ACL, and verify subsequent access is denied.\n\nRules and examples\nAn active grant is not a permanent role permission. Extending access requires a new approval and expiry. Expiration is evaluated against current time, not merely when a background cleanup runs.\n\nExceptions and audit\nEmergency access requires a documented incident and retrospective review; it remains scoped and time-limited. Grant, expiry, revoke, and ACL-sync",
+      "time-limited. Grant, expiry, revoke, and ACL-sync outcomes are auditable. Owner: IAM; review quarterly.\n\nLifecycle evidence\nThe grant record identifies one tenant-scoped user, document, purpose, and expiry.\nThe approver is distinct from the requester when separation of duties is required.\nExpiry checks use the current decision time and do not depend on scheduled cleanup.\nRevocation removes the authoritative grant before the vector ACL is refreshed.\nThe post-retrieval authorization check denies"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 18,
+        "title": "Temporary Access Management Standard",
+        "file_name": "temporary-access-management.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 11,
+        "title": "Employee Access Management Standard",
+        "file_name": "employee-access-management.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 1,
+        "title": "RAGVault Engineering Architecture",
+        "file_name": "ragvault-engineering-architecture-expanded.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 18,
+        "title": "Temporary Access Management Standard",
+        "file_name": "temporary-access-management.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 18,
+        "title": "Temporary Access Management Standard",
+        "file_name": "temporary-access-management.txt",
+        "chunk_index": 3
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "11": {
+    "user_input": "What data-minimization steps are required before using personal data in an AI retrieval workflow?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.41124375203299574,
+      "context_precision": 0.999999999975,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.3333333333333333
+    },
+    "response": "Map the sources, recipients, providers, regions, retention, and deletion behavior; process only what the defined purpose needs; and mask identifiers in support and evaluation data.",
+    "reference": "Before a new AI or retrieval use, map data flows and retention, minimize processing to the defined purpose, and mask identifiers in support and evaluation data.",
+    "retrieved_contexts": [
+      "on, retention, and incident safeguards.\n\nRules\nCollect and process only data needed for a defined purpose. Restrict sensitive attributes to authorized roles and users. Do not place real personal data in public test fixtures or prompts unless approved and minimized. Separate tenant data and do not use another customer's content to answer a query. Honor correction, access, and deletion workflows subject to legal holds.\n\nProcedure\nBefore a new AI or retrieval use, map data sources, recipients, prov",
+      "retrieval use, map data sources, recipients, providers, regions, retention, and deletion behavior. Mask identifiers in support and evaluation data. If personal data is sent to an unintended recipient, report it through incident response and preserve the facts needed for assessment.\n\nExceptions\nPrivacy and Legal document the basis, scope, safeguards, and expiry for exceptional processing.\n\nAudit\nMaintain processing records, access logs, and deletion evidence. Review data flows annually and after",
+      "Data Privacy Standard\nDocument owner: Privacy Office\nReview frequency: Annual\nClassification: Confidential\n\nPurpose and scope\nProtect personal data throughout collection, indexing, retrieval, support, evaluation, and disposal.\n\nDefinitions and roles\nPersonal data relates to an identified or identifiable person. The business owner states the purpose. Privacy advises on lawful use and data-subject obligations. System owners apply access, minimization, retention, and incident safeguards.\n\nRules\nCol",
+      "tadata. Permission-aware retrieval applies filters before vector search and a second authoritative authorization check before model context construction. Updates and deletions must use the supported document workflow so stored text and vectors remain consistent.\n\nSecurity and limitations\nThe model is not an identity provider, access approver, or source of authorization decisions. Retrieved content is untrusted and cannot override system instructions. Answers may be incomplete or incorrect; users",
+      "AI Use and Governance Standard\nDocument owner: AI Governance Council\nReview frequency: Annual and after material model or data-flow changes\nClassification: Internal\n\nPurpose and scope\nGovern use of generative AI and retrieval-augmented generation for company work. Applies to prompts, retrieved sources, generated responses, evaluation, and model-provider integrations.\n\nRoles\nThe use-case owner documents purpose and impact. Data owners approve source-data use. Security reviews access boundaries an"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 19,
+        "title": "Data Privacy Standard",
+        "file_name": "data-privacy.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 19,
+        "title": "Data Privacy Standard",
+        "file_name": "data-privacy.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 19,
+        "title": "Data Privacy Standard",
+        "file_name": "data-privacy.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 3,
+        "title": "RAGVault Product Overview",
+        "file_name": "ragvault-product-overview.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 17,
+        "title": "AI Use and Governance Standard",
+        "file_name": "ai-governance.txt",
+        "chunk_index": 0
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "12": {
+    "user_input": "What protections does the Authentication and Password Standard require for stored passwords and access tokens?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.6828733754951822,
+      "context_precision": 0.8666666666377778,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.9999999900000002,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Store only salted password hashes using an approved password-hashing function. Send tokens over TLS, keep them out of logs and URLs, and expire or revoke them through supported session controls.",
+    "reference": "Passwords are stored only as approved salted hashes. Tokens are sent over TLS, excluded from logs and URLs, and expired or revoked through supported session controls.",
+    "retrieved_contexts": [
+      "ates credential abuse.\n\nRules\nUse unique individual identities and multifactor authentication where supported, especially for administrators. Passwords must not be reused across work and personal services or stored in plaintext. Approved password managers are preferred. Applications store only salted password hashes using an approved password-hashing function. Access tokens must be sent over TLS, kept out of logs and URLs, and expired or revoked through the supported session control.\n\nProcedure",
+      "orts it.\nShared credentials are prohibited unless an approved exception exists.\nToken-bearing requests use the protected transport configured by deployment.\nInactive accounts are disabled through the authoritative identity record.",
+      "tenant claim as a substitute for membership.\nAdministrative account creation is tenant-scoped and does not return password hashes.\nAuthentication failures use non-disclosing responses and are monitored for abuse.\nUsers report suspected token exposure so supported sessions can be revoked.\nPassword reset and account recovery require an approved identity-verification path.\nPrivileged access receives stronger authentication where the deployment supports it.\nShared credentials are prohibited unless",
+      "Secrets Management Standard\nDocument owner: Platform Security\nReview frequency: Annual\nClassification: Internal\n\nPurpose\nPrevent credentials and tokens from being exposed through code, logs, documents, or evaluation artifacts.\n\nScope\nApplies to application secrets, database passwords, signing material, and provider API keys.\n\nDefinitions\nControl owner: the role accountable for implementation and evidence.\nException: a documented, approved, and time-bounded deviation.\n\nRoles and responsibilities",
+      "Authentication and Password Standard\nDocument owner: Identity Engineering\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nSet identity proofing, password, session, and token handling requirements for workforce and tenant applications.\n\nRoles\nUsers protect authenticators and report suspected compromise. Tenant administrators provision accounts within their tenant. Identity Engineering operates authentication. Security investigates credential abuse.\n\nRules\nUse unique individua"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 20,
+        "title": "Authentication and Password Standard",
+        "file_name": "authentication-password-policy.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 20,
+        "title": "Authentication and Password Standard",
+        "file_name": "authentication-password-policy.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 20,
+        "title": "Authentication and Password Standard",
+        "file_name": "authentication-password-policy.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 34,
+        "title": "Secrets Management Standard",
+        "file_name": "secrets-management-standard.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 20,
+        "title": "Authentication and Password Standard",
+        "file_name": "authentication-password-policy.txt",
+        "chunk_index": 0
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "13": {
+    "user_input": "What is the difference between an audit record and a security event in the monitoring standard?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.9409217316293527,
+      "context_precision": 0.99999999995,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "An audit record captures a business action. A security event captures a security-relevant condition, such as denied access.",
+    "reference": "Audit records describe business actions; security events describe security-relevant conditions such as access denial.",
+    "retrieved_contexts": [
+      "Security Monitoring and Audit Standard\nDocument owner: Security Operations\nReview frequency: Annual\nClassification: Confidential\n\nPurpose and scope\nDefine security event and audit evidence requirements for identity, authorization, document access, administration, and production changes.\n\nDefinitions and roles\nAn audit record captures a business action; a security event captures a security-relevant condition such as denied access. Security Operations monitors signals. System owners ensure events",
+      "unavailable telemetry are documented with owner, impact, and remediation date; they are not silently treated as evidence of no incident.\n\nAudit and review\nSecurity reviews alert coverage quarterly and access to logs annually. Owner: Security Operations; annual policy review.\n\nReview workflow\nAn audit record explains a sensitive action; a security event describes a threat signal.\nEach record uses the available actor, tenant, target, outcome, and timestamp fields.\nRepeated denials are reviewed for",
+      "ons monitors signals. System owners ensure events are attributable and protected.\n\nRequirements\nRecord actor identity, tenant, action, target resource, outcome, and timestamp where applicable. Denials must not disclose protected content. Logs must not contain passwords, bearer tokens, API keys, or full restricted document bodies. Restrict log access and protect records against unauthorized modification. Alert on repeated denials, unexpected privileged changes, and suspicious cross-tenant attempt",
+      "ewers verify that denial events do not include protected text.\nSensitive audit access is limited to authorized investigation roles.\nRetention follows the approved evidence and privacy schedule.",
+      "with equivalent safeguards. A personal device is not an automatic exception to managed-device requirements.\n\nAudit\nEndpoint compliance is monitored centrally; access anomalies are reviewed by Security. Owner: Endpoint Security; review annually.\n\nRemote-work operating checks\nUsers connect through approved identity controls and do not share active sessions.\nThe endpoint reports supported encryption and current security updates.\nSensitive information is not copied to an unmanaged personal device f"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 15,
+        "title": "Remote Work Security Standard",
+        "file_name": "remote-work-security.txt",
+        "chunk_index": 3
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "14": {
+    "user_input": "Describe both authorization checks in RAGVault's documented retrieval path.",
+    "scores": {
+      "faithfulness": 0.6666666666666666,
+      "answer_relevancy": 0.2101186990108519,
+      "context_precision": 0.6999999999766667,
+      "context_recall": 0.0,
+      "context_entity_recall": 0.999999995,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Qdrant first filters by tenant and, for non-admin users, allowed user ID or role. After retrieval, RAGVault checks each document against authoritative tenant, permission, and temporary-access state before building LLM context.",
+    "reference": "RAGVault applies tenant and user/role ACL filters in Qdrant before retrieval, then performs authoritative post-retrieval checks for tenant and document permission or temporary access before context construction.",
+    "retrieved_contexts": [
+      "RAGVault Security Architecture\nDocument owner: Product Security\nReview frequency: Quarterly and after authorization-path changes\nClassification: Internal\n\nPurpose and scope\nDescribe the implemented security boundaries for the RAGVault FastAPI, PostgreSQL, Qdrant, and language-model request path. This description is architecture documentation; verification is provided by dedicated tests and deployment review.\n\nIdentity and tenancy\nJWT authentication resolves the current user from the database; in",
+      "RAGVault Product Overview\nDocument owner: Product Management\nReview frequency: Quarterly\nClassification: Internal\n\nPurpose and scope\nRAGVault is a permission-aware retrieval-augmented generation application for searching approved enterprise documents. This overview describes the current product boundaries and is not a promise that every deployment has identical configuration.\n\nComponents and definitions\nThe Next.js frontend presents authentication, document management, access requests, administr",
+      "ons. Answers may be incomplete or incorrect; users should inspect cited sources. RAGAS measures answer and retrieval quality, not authorization security. Tenant isolation, access revocation, and leakage prevention require dedicated security tests.\n\nExceptions and audit\nUse only approved tenant content and models. Product changes to indexing, retrieval, context construction, or permissions require engineering and security review. Sensitive administration and question activity are recorded where t",
+      "ed.\nThe post-retrieval authorization check denies stale vector metadata after expiry.\nAn extension creates a new approved time window rather than silently prolonging access.\nAudit evidence records grant, expiry, early revoke, and synchronization outcome.",
+      "and any retrieval ACL cache or index. The application must perform an authorization check before releasing retrieved content. Exceptions are time-bounded, approved, and reviewed.\n\nEvidence\nRecord request, approval or denial, grant, change, and revoke events. Reviewers verify actor, tenant, resource, scope, and timestamp. Owner: IAM. Review frequency: annual, with quarterly access reviews.\n\nDecision and review controls\nAuthorization uses the authenticated identity and authoritative tenant members"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 8,
+        "title": "RAGVault Security Architecture",
+        "file_name": "ragvault-security-architecture-expanded.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 3,
+        "title": "RAGVault Product Overview",
+        "file_name": "ragvault-product-overview.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 3,
+        "title": "RAGVault Product Overview",
+        "file_name": "ragvault-product-overview.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 18,
+        "title": "Temporary Access Management Standard",
+        "file_name": "temporary-access-management.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 3
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "15": {
+    "user_input": "What chunking and retrieval-limit values does the Engineering Architecture document describe, and which are evaluation-specific?",
+    "scores": {
+      "faithfulness": 0.6666666666666666,
+      "answer_relevancy": 0.6712042554892323,
+      "context_precision": 0.19999999998,
+      "context_recall": 0.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.6666666666666666
+    },
+    "response": "Chunking uses 500 characters with 50-character overlap. Production requests use the pipeline default limit of five; the evaluation runner sets a limit of three.",
+    "reference": "The engineering document specifies 500-character chunks, 50-character overlap, a production default retrieval limit of five, and a RAGAS evaluation limit of three.",
+    "retrieved_contexts": [
+      "ce.\n\nExceptions and audit\nDo not bypass authorization to improve retrieval scores. Changes to chunking, top-k, model, or permission filters require review and a recorded evaluation. Owner: Platform Engineering; review quarterly.\n\nImplementation and operational notes\nThe API validates question length and retrieval limits before embedding a query.\nChunk identifiers are stable per document and chunk index for vector replacement.\nIngestion stores tenant, classification, document identity, and ACL pa",
+      "t and vector count after ingestion or replacement.\n\nExamples\nA scanned image with no extractable text requires an approved OCR path.\nA DOCX with tables is checked for extraction limitations before operational use.\n\nExceptions\nA parser exception blocks indexing and is escalated with the source identifier.\nA retry is recorded and does not create duplicate points for the same chunk.\n\nAudit evidence and review\nRetain extraction outcome, parser version, and ingestion timestamp.\nReview malformed-file",
+      "chunk index, tenant ID, classification, title, file name, text, allowed user IDs, and allowed roles. Permission synchronization updates ACL metadata without regenerating embeddings.\n\nQuery path\nThe production RAG route requests secure context with the pipeline's default limit of five. The RAGAS evaluation runner intentionally sets limit three. Qdrant applies tenant and user/role filters before returning candidates. The pipeline then validates each candidate using database authorization before c",
+      "reates a separately labeled result artifact.\nAn evaluator override never changes the production model setting.\n\nExceptions\nRate-limit failures pause evaluation rather than creating placeholder values.\nChanged inputs require explicit rescore and preserve prior snapshots.\n\nAudit evidence and review\nArchive model, RAGAS version, settings, and coverage.\nReview metric status and failures before publishing a report.",
+      "RAGVault Engineering Architecture\nDocument owner: Platform Engineering\nReview frequency: Quarterly\nClassification: Internal\n\nPurpose and scope\nDescribe the RAGVault request and ingestion pipeline for engineers maintaining the service.\n\nComponents\nFastAPI exposes authentication, document, permission, administration, and RAG routes. PostgreSQL stores users, tenant IDs, document content, permissions, temporary grants, access requests, audit logs, and security events. Qdrant stores embedded text chu"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 1,
+        "title": "RAGVault Engineering Architecture",
+        "file_name": "ragvault-engineering-architecture-expanded.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 4,
+        "title": "Document Ingestion and Source Validation Standard",
+        "file_name": "document-ingestion-source-validation.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 1,
+        "title": "RAGVault Engineering Architecture",
+        "file_name": "ragvault-engineering-architecture-expanded.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 38,
+        "title": "AI Model Change and Evaluation Standard",
+        "file_name": "ai-model-change-evaluation-standard.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 1,
+        "title": "RAGVault Engineering Architecture",
+        "file_name": "ragvault-engineering-architecture-expanded.txt",
+        "chunk_index": 0
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "16": {
+    "user_input": "In the Vendor Security Assessment PDF, what must be completed before production data is shared with a vendor?",
+    "scores": {
+      "faithfulness": 0.5,
+      "answer_relevancy": 0.4781227535014201,
+      "context_precision": 0.7499999999625,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Classify proposed data and tenant boundaries; review current assurance, incident, location, retention, and subprocessor evidence; scope credentials; verify safeguards; record gaps and approvals; and obtain written approval.",
+    "reference": "Before production sharing, the vendor guide requires data and boundary classification, review of assurance and contractual evidence, least-scoped credentials, safeguard verification, documented gaps and owners, and written approval.",
+    "retrieved_contexts": [
+      "Vendor Security Assessment Guide\nDocument owner: Third-Party Risk\nReview frequency: Annual\nClassification: Internal\nPurpose\nThis guide explains how procurement and Security assess a vendor before sensitive information or\nproduction connectivity is approved.\nScope and definitions\nA vendor is an external service provider processing company or customer information. A critical vendor\ncan affect confidentiality, integrity, availability, or a regulated business process. A security\nquestionnaire is evi",
+      "pected compromise.\n\nPolicy and procedure\nAccess must have a documented business purpose and be limited to the minimum role and data required. Owners review privileged access at least quarterly and ordinary access at least annually. Production changes require peer review, a recorded deployment, and a rollback plan. Data must use approved encryption in transit and at rest where supported. Secrets belong in an approved secret manager and must never be committed to source control or copied into supp",
+      "Roles and responsibilities\nPlatform owners maintain deployment settings.\nSecurity reviews exposed interfaces.\nService owners classify stored data.\n\nMandatory rules\nExpose only required service ports.\nUse separate credentials for application dependencies.\nKeep development and production data separated.\nEncrypt traffic and storage where the platform supports it.\nUse health checks and least-privilege runtime identities.\n\nOperating procedure\nReview network paths before deployment.\nLoad secrets fro",
+      "business process. A security\nquestionnaire is evidence to review, not a substitute for verification.\nRoles\nThe business sponsor documents purpose, data, integrations, and business dependency. Procurement\nconfirms contractual terms and subprocessors. Security reviews access controls, encryption, incident\nhandling, vulnerability management, and independent assurance. Privacy reviews personal-data flows.\nLegal approves contract language.\nAssessment procedure\n1. Classify proposed data and identify",
+      "responsibilities\nAsset owners remediate findings.\nSecurity triages severity and exploitability.\nRelease owners verify closure.\n\nMandatory rules\nTrack each finding to an owner and due date.\nPrioritize reachable and data-impacting weaknesses.\nDo not suppress a finding solely to meet a deadline.\nTest fixes against regression cases.\nDocument accepted residual risk with an expiry.\n\nOperating procedure\nRecord affected component and evidence.\nAssess severity and exposure.\nPatch or mitigate through a r"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 24,
+        "title": "Vendor Security Assessment Guide",
+        "file_name": "vendor-security-assessment.pdf",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 9,
+        "title": "Information Security Policy",
+        "file_name": "information-security-policy.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 29,
+        "title": "Cloud Security Configuration Baseline",
+        "file_name": "cloud-security-configuration-baseline.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 24,
+        "title": "Vendor Security Assessment Guide",
+        "file_name": "vendor-security-assessment.pdf",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 31,
+        "title": "Vulnerability Management Standard",
+        "file_name": "vulnerability-management-standard.txt",
+        "chunk_index": 1
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "17": {
+    "user_input": "What does the Employee Access Lifecycle DOCX say to do when an employee leaves?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.18849836553894267,
+      "context_precision": 0.999999999975,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Disable the account at the authoritative termination time, revoke sessions and temporary grants where supported, transfer records to an authorized owner, confirm completion, and escalate high-risk cases to Security.",
+    "reference": "The DOCX leaver procedure disables the account at the termination time, revokes sessions and temporary grants where supported, transfers records, confirms completion, and escalates high-risk terminations.",
+    "retrieved_contexts": [
+      "Employee Access Lifecycle Guide\nDocument owner: Identity Operations\nReview frequency: Annual\nClassification: Internal\nPurpose\nProvide operational instructions for provisioning, changing, and removing employee application access.\nScope and definitions\nThis guide covers workforce accounts in company-managed applications. A joiner is a newly authorized worker; a mover changes duties; a leaver's employment ends. Customer tenant accounts remain under the tenant administrator's authority.\nRoles\nThe ma",
+      "iles new-hire and termination notices against the authoritative roster.\nProvisioners verify tenant membership independently of user-supplied request fields.\nMoved employees lose obsolete grants before unrelated new access is added.\nLeaver processing includes active sessions and document-specific temporary grants.\nService credentials are reviewed separately from the employee's personal account.\nEvidence includes the approved request, granted role, completion time, and reviewer.\nManagers certify a",
+      "revoke sessions and temporary grants where supported, and transfer business records to an authorized owner. Confirm completion and notify the manager. Escalate a high-risk termination to Security for coordinated containment.\nExceptions and audit\nUrgent access is still approved, scoped, and time-limited. Record requester, approver, account, target system, role, effective time, and completion. Identity Operations reconciles leaver notifications daily and managers certify access quarterly.\nOperati",
+      "ily and managers certify access quarterly.\nOperational exceptions and evidence\nAn urgent joiner request still identifies a manager, tenant, role, and expiry if temporary.\nIdentity Operations records the source of the employment-status instruction.\nThe application owner validates that the new role exposes only required screens and data.\nMover validation confirms that obsolete access was removed before closure.\nLeaver evidence includes account disablement and supported session revocation outcomes.",
+      "documents.\n\nProcedure\nThe requester states the resource, purpose, role or user, and requested duration. The owner approves before access is provisioned. The provisioner records the approver and scope, verifies the tenant, and tests that unrelated resources remain inaccessible. Managers review access quarterly; account owners remove access when duties change.\n\nRevocation and exceptions\nRevocation is applied to the authoritative permission record and any retrieval ACL cache or index. The applicat"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 25,
+        "title": "Employee Access Lifecycle Guide",
+        "file_name": "employee-access-lifecycle.docx",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 11,
+        "title": "Employee Access Management Standard",
+        "file_name": "employee-access-management.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 25,
+        "title": "Employee Access Lifecycle Guide",
+        "file_name": "employee-access-lifecycle.docx",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 25,
+        "title": "Employee Access Lifecycle Guide",
+        "file_name": "employee-access-lifecycle.docx",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 2
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "18": {
+    "user_input": "How do retention holds differ from incident evidence preservation?",
+    "scores": {
+      "faithfulness": 0.6,
+      "answer_relevancy": 0.7357910610937066,
+      "context_precision": 0.32499999998375,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "A retention hold suspends routine deletion until Legal releases it and must be periodically revalidated. Incident response preserves evidence for investigation, with access restricted and decisions recorded.",
+    "reference": "A legal hold suspends scheduled disposal pending Legal release, while incident response preserves restricted evidence for investigation and records response decisions.",
+    "retrieved_contexts": [
+      "er the approved backup lifecycle; do not claim immediate physical erasure from immutable backups.\n\nExamples\nAn incident evidence package follows the incident/legal retention instruction, not the ordinary working-document schedule. A superseded policy is archived according to its controlled-record category. A derived embedding is not exempt merely because it is not human-readable.\n\nExceptions\nRecords Management and Legal approve a documented extension with reason, owner, and review date. Suspende",
+      "ewers verify that denial events do not include protected text.\nSensitive audit access is limited to authorized investigation roles.\nRetention follows the approved evidence and privacy schedule.",
+      "ion covers the source object, extracted text, and derived vector points.\nThe operator records which systems were checked and any inaccessible replica.\nImmutable backup copies expire under the documented backup lifecycle.\nA deletion receipt must distinguish completed system deletion from backup aging.\nRestores reapply current retention and access policy before users can retrieve content.\nOwners re-check holds immediately before scheduled disposal.\nDeletion evidence names the source and every deri",
+      "retrieval use, map data sources, recipients, providers, regions, retention, and deletion behavior. Mask identifiers in support and evaluation data. If personal data is sent to an unintended recipient, report it through incident response and preserve the facts needed for assessment.\n\nExceptions\nPrivacy and Legal document the basis, scope, safeguards, and expiry for exceptional processing.\n\nAudit\nMaintain processing records, access logs, and deletion evidence. Review data flows annually and after",
+      "cation, and retention category. Verify the tenant and specific record permissions. Share only the minimum excerpt needed. Correct inaccurate information through the controlled record owner. On a role change or departure, promptly remove access and transfer records only to an authorized custodian.\n\nRetention, exceptions, and audit\nFollow the approved Document Retention Schedule and suspend disposal only for an active legal hold. Any broader or emergency access requires owner approval, written pur"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 14,
+        "title": "Document Retention and Disposal Schedule",
+        "file_name": "document-retention.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 14,
+        "title": "Document Retention and Disposal Schedule",
+        "file_name": "document-retention.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 19,
+        "title": "Data Privacy Standard",
+        "file_name": "data-privacy.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 2,
+        "title": "Employee Records Handling Standard",
+        "file_name": "employee-records-handling.txt",
+        "chunk_index": 3
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "19": {
+    "user_input": "When should an access request name a specific user rather than a role?",
+    "scores": {
+      "faithfulness": 0.75,
+      "answer_relevancy": 0.6502911021968085,
+      "context_precision": 0.8874999999778125,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Use a specific user grant when the business need is individual and resource-specific. Role grants apply to the matching role, but neither grant replaces tenant validation or provides access to neighboring documents.",
+    "reference": "A user grant targets an individual and a role grant targets members of that role. Both remain resource- and tenant-scoped; a grant does not authorize adjacent documents.",
+    "retrieved_contexts": [
+      "siness access. Tenant administrators manage accounts and grants inside their own tenant. Security validates privileged-role assignments.\n\nRules\nDeny access by default. Grant the least privilege needed for a named purpose. Use individual accounts; shared accounts require a documented exception and compensating audit controls. Role membership is not a substitute for tenant validation. A request for one document does not confer access to neighboring documents.\n\nProcedure\nThe requester states the re",
+      "Employee Access Management Standard\nDocument owner: People Operations and Identity Team\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nThis standard describes workforce joiner, mover, and leaver controls for internal systems. It does not replace customer-tenant administration.\n\nRoles\nThe hiring manager confirms role and start date. People Operations supplies authoritative employment status. IAM provisions and removes identities. The application owner maps approved duties to",
+      "nticated identity and authoritative tenant membership.\nUser-specific and role-based grants are scoped to the individual document resource.\nAdministrators cannot use a role in one tenant to cross another tenant boundary.\nGrant changes update the authoritative record before retrieval metadata is synchronized.\nThe application rechecks current permission after vector search and before disclosure.\nAccess reviews compare active grants with current business need and document ownership.\nDenied requests",
+      "Access Control Policy\nDocument owner: Identity and Access Management\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nDefine how users receive, use, review, and lose access to business applications and documents. Applies to workforce identities and tenant-scoped customer workspaces.\n\nDefinitions and roles\nAuthentication verifies identity; authorization decides what an authenticated identity may do. A resource owner approves business access. Tenant administrators manage accoun",
+      "the tenant administrator's authority.\nRoles\nThe manager verifies the business need and requested role. People Operations confirms identity and employment status. Identity Operations provisions or disables the account. The application owner confirms role mappings and reviews exceptional access.\nJoiner steps\nConfirm an approved ticket, verified identity, start date, manager, and tenant. Create an individual account, assign the least-privilege role, and require the user to complete authentication s"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 11,
+        "title": "Employee Access Management Standard",
+        "file_name": "employee-access-management.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 25,
+        "title": "Employee Access Lifecycle Guide",
+        "file_name": "employee-access-lifecycle.docx",
+        "chunk_index": 1
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "20": {
+    "user_input": "Does being an administrator in one tenant allow access to another tenant's documents?",
+    "scores": {
+      "faithfulness": 0.6666666666666666,
+      "answer_relevancy": 0.5808984649561352,
+      "context_precision": 0.99999999998,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "No. Admin access is within the administrator's own tenant; a role does not replace tenant validation.",
+    "reference": "No. RAGVault's administrator access is tenant-scoped, and admin role membership does not permit cross-tenant access.",
+    "retrieved_contexts": [
+      "siness access. Tenant administrators manage accounts and grants inside their own tenant. Security validates privileged-role assignments.\n\nRules\nDeny access by default. Grant the least privilege needed for a named purpose. Use individual accounts; shared accounts require a documented exception and compensating audit controls. Role membership is not a substitute for tenant validation. A request for one document does not confer access to neighboring documents.\n\nProcedure\nThe requester states the re",
+      "nticated identity and authoritative tenant membership.\nUser-specific and role-based grants are scoped to the individual document resource.\nAdministrators cannot use a role in one tenant to cross another tenant boundary.\nGrant changes update the authoritative record before retrieval metadata is synchronized.\nThe application rechecks current permission after vector search and before disclosure.\nAccess reviews compare active grants with current business need and document ownership.\nDenied requests",
+      "Access Control Policy\nDocument owner: Identity and Access Management\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nDefine how users receive, use, review, and lose access to business applications and documents. Applies to workforce identities and tenant-scoped customer workspaces.\n\nDefinitions and roles\nAuthentication verifies identity; authorization decides what an authenticated identity may do. A resource owner approves business access. Tenant administrators manage accoun",
+      "the tenant administrator's authority.\nRoles\nThe manager verifies the business need and requested role. People Operations confirms identity and employment status. Identity Operations provisions or disables the account. The application owner confirms role mappings and reviews exceptional access.\nJoiner steps\nConfirm an approved ticket, verified identity, start date, manager, and tenant. Create an individual account, assign the least-privilege role, and require the user to complete authentication s",
+      "nts. A user signs in, submits a question, and receives an answer with source documents where authorized results exist. Administrators can review access requests and security/audit views. A product administrator's authority remains inside the administrator's tenant.\n\nDocument lifecycle\nAdministrators can upload TXT, PDF, and DOCX sources. The service extracts text, divides it into chunks, creates embeddings, and indexes them with tenant and ACL metadata. Permission-aware retrieval applies filters"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 25,
+        "title": "Employee Access Lifecycle Guide",
+        "file_name": "employee-access-lifecycle.docx",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 3,
+        "title": "RAGVault Product Overview",
+        "file_name": "ragvault-product-overview.txt",
+        "chunk_index": 2
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "21": {
+    "user_input": "What steps make permission revocation effective in both the database and retrieval path?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.33393179596580985,
+      "context_precision": 0.99999999998,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.9999999900000002,
+      "noise_sensitivity": 0.25
+    },
+    "response": "Remove the authoritative grant and commit it, synchronize the document's Qdrant ACL metadata, and rely on the post-retrieval authorization check to deny content if vector metadata is stale.",
+    "reference": "Revocation removes the database permission, synchronizes Qdrant ACL metadata, and is enforced again by post-retrieval authorization so stale vector metadata cannot release content.",
+    "retrieved_contexts": [
+      "documents.\n\nProcedure\nThe requester states the resource, purpose, role or user, and requested duration. The owner approves before access is provisioned. The provisioner records the approver and scope, verifies the tenant, and tests that unrelated resources remain inaccessible. Managers review access quarterly; account owners remove access when duties change.\n\nRevocation and exceptions\nRevocation is applied to the authoritative permission record and any retrieval ACL cache or index. The applicat",
+      "t and role are passed to the retrieval component.\nQdrant filters tenant and user or role ACL metadata before returning candidate chunks.\nThe authoritative permission service checks each returned document again.\nOnly authorized results are formatted into the LLM context and source list.\nPermission revocation synchronizes vector metadata after the database change.\nAudit records and security events are separate evidence for sensitive actions and denials.\nThe model has no authority to approve a perm",
+      "ID or role in vector metadata. This filter reduces unauthorized candidates before retrieval. It is not the sole authorization control.\n\nDefense in depth\nEvery retrieved document is checked again against authoritative document, tenant, user/role permission, and active temporary-access state before context construction. Unauthorized or cross-tenant records are removed. Revocations synchronize Qdrant ACL metadata; the post-retrieval check remains necessary if metadata is stale. Only authorized tex",
+      "evocation, remove the grant, commit the change, synchronize the retrieval ACL, and verify subsequent access is denied.\n\nRules and examples\nAn active grant is not a permanent role permission. Extending access requires a new approval and expiry. Expiration is evaluated against current time, not merely when a background cleanup runs.\n\nExceptions and audit\nEmergency access requires a documented incident and retrospective review; it remains scoped and time-limited. Grant, expiry, revoke, and ACL-sync",
+      "time-limited. Grant, expiry, revoke, and ACL-sync outcomes are auditable. Owner: IAM; review quarterly.\n\nLifecycle evidence\nThe grant record identifies one tenant-scoped user, document, purpose, and expiry.\nThe approver is distinct from the requester when separation of duties is required.\nExpiry checks use the current decision time and do not depend on scheduled cleanup.\nRevocation removes the authoritative grant before the vector ACL is refreshed.\nThe post-retrieval authorization check denies"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 8,
+        "title": "RAGVault Security Architecture",
+        "file_name": "ragvault-security-architecture-expanded.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 8,
+        "title": "RAGVault Security Architecture",
+        "file_name": "ragvault-security-architecture-expanded.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 18,
+        "title": "Temporary Access Management Standard",
+        "file_name": "temporary-access-management.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 18,
+        "title": "Temporary Access Management Standard",
+        "file_name": "temporary-access-management.txt",
+        "chunk_index": 3
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "22": {
+    "user_input": "Which control distinguishes a temporary document grant from a permanent role grant?",
+    "scores": {
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7103297194438307,
+      "context_precision": 0.8055555555287036,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.0,
+      "noise_sensitivity": 0.0
+    },
+    "response": "A temporary grant names a user, document, and explicit expiry that is checked on every authorization decision. It is not a permanent role grant.",
+    "reference": "Temporary access is user- and document-specific, has an explicit expiry, and is rechecked during authorization; it is distinct from a permanent role permission.",
+    "retrieved_contexts": [
+      "Temporary Access Management Standard\nDocument owner: Identity and Access Management\nReview frequency: Quarterly\nClassification: Internal\n\nPurpose and scope\nDefine time-bounded document grants for an approved, specific business need.\n\nDefinitions and roles\nA temporary grant names one user and one document and ends at an explicit expiry. A requester explains purpose and duration. A tenant administrator verifies tenant membership and approves the grant. The application enforces expiry on every auth",
+      "nticated identity and authoritative tenant membership.\nUser-specific and role-based grants are scoped to the individual document resource.\nAdministrators cannot use a role in one tenant to cross another tenant boundary.\nGrant changes update the authoritative record before retrieval metadata is synchronized.\nThe application rechecks current permission after vector search and before disclosure.\nAccess reviews compare active grants with current business need and document ownership.\nDenied requests",
+      "completion time, and reviewer.\nManagers certify active access against current duties.\nExpired temporary grants are not renewed automatically.\nIAM records the completion time for each lifecycle change.",
+      "evocation, remove the grant, commit the change, synchronize the retrieval ACL, and verify subsequent access is denied.\n\nRules and examples\nAn active grant is not a permanent role permission. Extending access requires a new approval and expiry. Expiration is evaluated against current time, not merely when a background cleanup runs.\n\nExceptions and audit\nEmergency access requires a documented incident and retrospective review; it remains scoped and time-limited. Grant, expiry, revoke, and ACL-sync",
+      "Access Control Policy\nDocument owner: Identity and Access Management\nReview frequency: Annual\nClassification: Internal\n\nPurpose and scope\nDefine how users receive, use, review, and lose access to business applications and documents. Applies to workforce identities and tenant-scoped customer workspaces.\n\nDefinitions and roles\nAuthentication verifies identity; authorization decides what an authenticated identity may do. A resource owner approves business access. Tenant administrators manage accoun"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 18,
+        "title": "Temporary Access Management Standard",
+        "file_name": "temporary-access-management.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 11,
+        "title": "Employee Access Management Standard",
+        "file_name": "employee-access-management.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 18,
+        "title": "Temporary Access Management Standard",
+        "file_name": "temporary-access-management.txt",
+        "chunk_index": 2
+      },
+      {
+        "document_id": 10,
+        "title": "Access Control Policy",
+        "file_name": "access-control-policy.txt",
+        "chunk_index": 0
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "23": {
+    "user_input": "Which standard owns alerting on repeated authorization denials, and is that the same as privacy data minimization?",
+    "scores": {
+      "faithfulness": 0.25,
+      "answer_relevancy": 0.6561683145501893,
+      "context_precision": 0.0,
+      "context_recall": 0.0,
+      "context_entity_recall": 0.3333333322222222,
+      "noise_sensitivity": 0.0
+    },
+    "response": "Security Monitoring and Audit assigns Security Operations responsibility for monitoring repeated denials. Data minimization belongs to the Data Privacy Standard; these are separate controls.",
+    "reference": "Security Operations monitors repeated denials under the Security Monitoring and Audit Standard. Minimizing and masking personal data is covered by the Data Privacy Standard.",
+    "retrieved_contexts": [
+      "ewers verify that denial events do not include protected text.\nSensitive audit access is limited to authorized investigation roles.\nRetention follows the approved evidence and privacy schedule.",
+      "ons monitors signals. System owners ensure events are attributable and protected.\n\nRequirements\nRecord actor identity, tenant, action, target resource, outcome, and timestamp where applicable. Denials must not disclose protected content. Logs must not contain passwords, bearer tokens, API keys, or full restricted document bodies. Restrict log access and protect records against unauthorized modification. Alert on repeated denials, unexpected privileged changes, and suspicious cross-tenant attempt",
+      "imestamp fields.\nRepeated denials are reviewed for user error, scanning, or attempted boundary crossing.\nLog access is limited to responders with a documented operational need.\nInvestigators preserve the relevant event identifiers before changing retention state.\nAudit records exclude bearer tokens, password material, and full restricted document text.\nControl owners document telemetry gaps rather than interpreting missing events as success.\nReviewers verify that denial events do not include pro",
+      "unavailable telemetry are documented with owner, impact, and remediation date; they are not silently treated as evidence of no incident.\n\nAudit and review\nSecurity reviews alert coverage quarterly and access to logs annually. Owner: Security Operations; annual policy review.\n\nReview workflow\nAn audit record explains a sensitive action; a security event describes a threat signal.\nEach record uses the available actor, tenant, target, outcome, and timestamp fields.\nRepeated denials are reviewed for",
+      "leged changes, and suspicious cross-tenant attempts where telemetry supports it.\n\nProcedure\nCorrelate application and infrastructure events using consistent timestamps and request identifiers. Triage an alert by preserving relevant evidence, checking tenant/resource scope, and following incident response. Validate that authorization failures produce an event and that successful sensitive changes have an audit record.\n\nExceptions\nSampling gaps or unavailable telemetry are documented with owner, i"
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 1
+      },
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 3
+      },
+      {
+        "document_id": 21,
+        "title": "Security Monitoring and Audit Standard",
+        "file_name": "security-monitoring-audit.txt",
+        "chunk_index": 2
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "24": {
+    "user_input": "Which existing tests directly check Qdrant ACL filters and keep unauthorized text away from the LLM?",
+    "scores": {
+      "faithfulness": 0.3333333333333333,
+      "answer_relevancy": 0.41135584041056195,
+      "context_precision": 0.99999999995,
+      "context_recall": 0.0,
+      "context_entity_recall": 0.49999999875,
+      "noise_sensitivity": 0.0
+    },
+    "response": "The project has `test_qdrant_query_uses_tenant_and_user_role_acl_filters` in `test_rag_security.py` and `test_unauthorized_retrieval_never_reaches_llm_and_is_audited` in the same file. Both passed in the recorded 60-test focused security run.",
+    "reference": "The test inventory lists `test_qdrant_query_uses_tenant_and_user_role_acl_filters` and `test_unauthorized_retrieval_never_reaches_llm_and_is_audited` in backend/tests/test_rag_security.py; both are marked PASS in the 60-test focused security run.",
+    "retrieved_contexts": [
+      "t and role are passed to the retrieval component.\nQdrant filters tenant and user or role ACL metadata before returning candidate chunks.\nThe authoritative permission service checks each returned document again.\nOnly authorized results are formatted into the LLM context and source list.\nPermission revocation synchronizes vector metadata after the database change.\nAudit records and security events are separate evidence for sensitive actions and denials.\nThe model has no authority to approve a perm",
+      "nt and user/role ACL filter. Location: backend/tests/test_rag_security.py. Result: PASS.\n- test_unauthorized_retrieval_never_reaches_llm_and_is_audited \u2014 Confirms unauthorized content is excluded from the LLM call and the query is audited. Location: backend/tests/test_rag_security.py. Result: PASS.\n- test_authorized_rag_query_returns_sources_and_audit_record \u2014 Confirms authorized context, source, and audit output. Location: backend/tests/test_rag_security.py. Result: PASS.\n- test_secure_context_",
+      "eval filtering, and no unauthorized LLM context.\n\nLimitations and review\nRAG quality scores do not establish authorization correctness. Security test coverage is not proof against all threats. Product Security reviews access paths, tenant filters, vector payload synchronization, and context construction quarterly.\n\nEnforcement boundaries\nJWT authentication identifies an active user before protected routes execute.\nThe user's database-backed tenant and role are passed to the retrieval component.",
+      "n: backend/tests/test_idor_authorization.py. Result: PASS.\n- test_temporary_access_revoke_removes_record_and_syncs_acl \u2014 Removes a temporary grant and synchronizes Qdrant. Location: backend/tests/test_idor_authorization.py. Result: PASS.\n- test_sync_document_permissions_updates_qdrant_acl \u2014 Writes current grants to vector metadata. Location: backend/tests/test_permission_sync.py. Result: PASS.\n- test_sync_document_permissions_clears_qdrant_acl_after_revocation \u2014 Clears revoked ACL metadata. Loca",
+      "estion. Location: backend/tests/test_rag_security.py. Result: PASS.\n\nRun summary\nThe focused security suite collected and passed 64 tests, with no failures, on 2026-10-07. The inventory reports test results only; no accuracy percentage is computed by these tests. Passing the suite is not proof that untested threats are absent. RAGAS measures retrieval and answer quality; it does not replace these security tests."
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 8,
+        "title": "RAGVault Security Architecture",
+        "file_name": "ragvault-security-architecture-expanded.txt",
+        "chunk_index": 5
+      },
+      {
+        "document_id": 26,
+        "title": "RAGVault Security Test Inventory",
+        "file_name": "security-test-inventory.txt",
+        "chunk_index": 19
+      },
+      {
+        "document_id": 8,
+        "title": "RAGVault Security Architecture",
+        "file_name": "ragvault-security-architecture-expanded.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 26,
+        "title": "RAGVault Security Test Inventory",
+        "file_name": "security-test-inventory.txt",
+        "chunk_index": 16
+      },
+      {
+        "document_id": 26,
+        "title": "RAGVault Security Test Inventory",
+        "file_name": "security-test-inventory.txt",
+        "chunk_index": 25
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  },
+  "25": {
+    "user_input": "What does the Security Test Inventory say about RAGAS and security assurance?",
+    "scores": {
+      "faithfulness": 0.6666666666666666,
+      "answer_relevancy": 0.48136059681798365,
+      "context_precision": 0.7555555555303703,
+      "context_recall": 1.0,
+      "context_entity_recall": 0.9999999900000002,
+      "noise_sensitivity": 0.0
+    },
+    "response": "It says RAGAS measures RAG retrieval and answer quality but does not replace security tests or prove that untested threats are absent.",
+    "reference": "The inventory states that RAGAS evaluates retrieval and answer quality, not authorization correctness, and does not replace dedicated security tests or prove absence of untested threats.",
+    "retrieved_contexts": [
+      "estion. Location: backend/tests/test_rag_security.py. Result: PASS.\n\nRun summary\nThe focused security suite collected and passed 64 tests, with no failures, on 2026-10-07. The inventory reports test results only; no accuracy percentage is computed by these tests. Passing the suite is not proof that untested threats are absent. RAGAS measures retrieval and answer quality; it does not replace these security tests.",
+      "RAGVault Security Test Inventory\nDocument owner: RAGVault Engineering\nEvidence source: pytest collection and execution of the named project tests\nVerification date: 2026-10-07\nFocused security-suite result: PASS, 64 passed, 0 failed\n\nPurpose and limitations\nThis inventory names existing tests, not a claim of exhaustive security assurance. PASS means the named test passed in the recorded focused pytest run. It does not imply every production configuration or attack has been tested.\n\nAuthenticatio",
+      "ons. Answers may be incomplete or incorrect; users should inspect cited sources. RAGAS measures answer and retrieval quality, not authorization security. Tenant isolation, access revocation, and leakage prevention require dedicated security tests.\n\nExceptions and audit\nUse only approved tenant content and models. Product changes to indexing, retrieval, context construction, or permissions require engineering and security review. Sensitive administration and question activity are recorded where t",
+      "RAGVault Security Architecture\nDocument owner: Product Security\nReview frequency: Quarterly and after authorization-path changes\nClassification: Internal\n\nPurpose and scope\nDescribe the implemented security boundaries for the RAGVault FastAPI, PostgreSQL, Qdrant, and language-model request path. This description is architecture documentation; verification is provided by dedicated tests and deployment review.\n\nIdentity and tenancy\nJWT authentication resolves the current user from the database; in",
+      "eval filtering, and no unauthorized LLM context.\n\nLimitations and review\nRAG quality scores do not establish authorization correctness. Security test coverage is not proof against all threats. Product Security reviews access paths, tenant filters, vector payload synchronization, and context construction quarterly.\n\nEnforcement boundaries\nJWT authentication identifies an active user before protected routes execute.\nThe user's database-backed tenant and role are passed to the retrieval component."
+    ],
+    "retrieved_sources": [
+      {
+        "document_id": 26,
+        "title": "RAGVault Security Test Inventory",
+        "file_name": "security-test-inventory.txt",
+        "chunk_index": 25
+      },
+      {
+        "document_id": 26,
+        "title": "RAGVault Security Test Inventory",
+        "file_name": "security-test-inventory.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 3,
+        "title": "RAGVault Product Overview",
+        "file_name": "ragvault-product-overview.txt",
+        "chunk_index": 4
+      },
+      {
+        "document_id": 8,
+        "title": "RAGVault Security Architecture",
+        "file_name": "ragvault-security-architecture-expanded.txt",
+        "chunk_index": 0
+      },
+      {
+        "document_id": 8,
+        "title": "RAGVault Security Architecture",
+        "file_name": "ragvault-security-architecture-expanded.txt",
+        "chunk_index": 4
+      }
+    ],
+    "retrieval_configuration": {
+      "top_k": 5,
+      "chunk_size": 500,
+      "chunk_overlap": 50,
+      "permission_aware": true
+    },
+    "metric_models": {
+      "faithfulness": "openai/gpt-oss-20b",
+      "answer_relevancy": "openai/gpt-oss-20b",
+      "context_precision": "openai/gpt-oss-20b",
+      "context_recall": "openai/gpt-oss-20b",
+      "context_entity_recall": "openai/gpt-oss-20b",
+      "noise_sensitivity": "openai/gpt-oss-20b"
+    }
+  }
+}

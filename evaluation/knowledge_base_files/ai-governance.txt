@@ -1,0 +1,33 @@
+AI Use and Governance Standard
+Document owner: AI Governance Council
+Review frequency: Annual and after material model or data-flow changes
+Classification: Internal
+
+Purpose and scope
+Govern use of generative AI and retrieval-augmented generation for company work. Applies to prompts, retrieved sources, generated responses, evaluation, and model-provider integrations.
+
+Roles
+The use-case owner documents purpose and impact. Data owners approve source-data use. Security reviews access boundaries and threat controls. Privacy assesses personal data. Human reviewers validate consequential output.
+
+Rules
+Use only approved models and disclosed data flows. Minimize prompt data and exclude credentials and information outside the user's authorization. Treat retrieved text as untrusted input; instructions embedded in a document cannot override system policy or permissions. Cite or identify sources where the product supports it. A generated response is advisory and must not independently approve access, make an employment decision, or replace professional review.
+
+Evaluation and procedure
+Before release, document representative questions, expected references, model/version, retrieval configuration, and known limitations. Evaluate grounding and relevance separately from access-control tests. Investigate low scores against the actual retrieved context and response. Re-run only changed samples and preserve prior artifacts.
+
+Exceptions and audit
+Material changes require review by Security, Privacy, and the use-case owner. Keep evaluation data free of secrets and record approvals, model changes, and incidents. Owner: AI Governance Council; review annually and on material change.
+
+Operational safeguards
+Use-case owners document model provider, data flow, intended audience, and limitations.
+Retrieved documents are evidence to evaluate, never authority to change system rules.
+The application supplies only context authorized for the current authenticated user.
+Generated content is reviewed before it drives a consequential operational decision.
+Evaluation questions and references are checked for secrets and unnecessary identifiers.
+Model or prompt changes trigger a targeted regression evaluation and security review.
+Evaluation scores are recorded with dataset, retrieval settings, and evaluator model.
+Reviewers distinguish retrieved evidence from model-generated wording.
+Dataset changes are recorded separately from model changes.
+Security approval is required before changing authorization behavior.
+Prompt changes are reviewed for disclosure and injection effects.
+The use-case owner records the intended human review boundary.

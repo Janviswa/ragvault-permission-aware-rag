@@ -1,0 +1,32 @@
+Temporary Access Management Standard
+Document owner: Identity and Access Management
+Review frequency: Quarterly
+Classification: Internal
+
+Purpose and scope
+Define time-bounded document grants for an approved, specific business need.
+
+Definitions and roles
+A temporary grant names one user and one document and ends at an explicit expiry. A requester explains purpose and duration. A tenant administrator verifies tenant membership and approves the grant. The application enforces expiry on every authorization decision.
+
+Procedure
+1. Verify user and document belong to the same tenant.
+2. Record approver, purpose, start time, expiry time with timezone, and target resource.
+3. Synchronize any pre-retrieval ACL metadata after granting.
+4. At or after expiry, deny access even if a stale vector ACL still names the user; the authoritative post-retrieval check must reject the document.
+5. For early revocation, remove the grant, commit the change, synchronize the retrieval ACL, and verify subsequent access is denied.
+
+Rules and examples
+An active grant is not a permanent role permission. Extending access requires a new approval and expiry. Expiration is evaluated against current time, not merely when a background cleanup runs.
+
+Exceptions and audit
+Emergency access requires a documented incident and retrospective review; it remains scoped and time-limited. Grant, expiry, revoke, and ACL-sync outcomes are auditable. Owner: IAM; review quarterly.
+
+Lifecycle evidence
+The grant record identifies one tenant-scoped user, document, purpose, and expiry.
+The approver is distinct from the requester when separation of duties is required.
+Expiry checks use the current decision time and do not depend on scheduled cleanup.
+Revocation removes the authoritative grant before the vector ACL is refreshed.
+The post-retrieval authorization check denies stale vector metadata after expiry.
+An extension creates a new approved time window rather than silently prolonging access.
+Audit evidence records grant, expiry, early revoke, and synchronization outcome.

@@ -1,0 +1,45 @@
+Cloud Security Configuration Baseline
+Document owner: Cloud Platform Security
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Set minimum safeguards for deployed application and data services.
+
+Scope
+Applies to container workloads, managed data services, networking, secrets, and observability.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+Platform owners maintain deployment settings.
+Security reviews exposed interfaces.
+Service owners classify stored data.
+
+Mandatory rules
+Expose only required service ports.
+Use separate credentials for application dependencies.
+Keep development and production data separated.
+Encrypt traffic and storage where the platform supports it.
+Use health checks and least-privilege runtime identities.
+
+Operating procedure
+Review network paths before deployment.
+Load secrets from protected runtime configuration.
+Patch base images and pinned dependencies.
+Verify backup and restore controls.
+Record service ownership and escalation contacts.
+
+Examples
+A local compose network is not assumed to be production-hardened.
+A health endpoint reports dependency status without returning credentials.
+
+Exceptions
+Temporary public exposure requires documented risk approval and expiry.
+Emergency credentials are rotated after the incident.
+
+Audit evidence and review
+Review configuration drift and access logs.
+Reassess the baseline annually and after cloud changes.

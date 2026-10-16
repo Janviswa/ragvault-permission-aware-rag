@@ -1,0 +1,34 @@
+Employee Access Management Standard
+Document owner: People Operations and Identity Team
+Review frequency: Annual
+Classification: Internal
+
+Purpose and scope
+This standard describes workforce joiner, mover, and leaver controls for internal systems. It does not replace customer-tenant administration.
+
+Roles
+The hiring manager confirms role and start date. People Operations supplies authoritative employment status. IAM provisions and removes identities. The application owner maps approved duties to application roles.
+
+Joiner procedure
+Create a unique account only after identity verification and an approved request. Assign the minimum role for the employee's duties. Require the user to establish an individual credential and complete security onboarding before sensitive access. Do not accept a client-selected tenant identifier as proof of membership.
+
+Mover procedure
+When duties change, the manager submits the new role and effective date. IAM reviews existing entitlements, removes no-longer-needed access, then provisions approved new access. Preserve an auditable record of both actions; do not accumulate roles by default.
+
+Leaver procedure
+People Operations notifies IAM of termination. IAM disables the account promptly at the effective time, revokes sessions and active grants where supported, and transfers business records to an authorized owner. Security verifies privileged accounts and service credentials are rotated if exposed.
+
+Exceptions and audit
+Urgent termination follows the incident escalation path if a delay creates material risk. IAM records requester, approver, account, tenant or system, timestamps, and completion evidence. Managers certify access quarterly.
+
+Operational checks
+Managers submit role changes with the affected employee and effective date.
+IAM reconciles new-hire and termination notices against the authoritative roster.
+Provisioners verify tenant membership independently of user-supplied request fields.
+Moved employees lose obsolete grants before unrelated new access is added.
+Leaver processing includes active sessions and document-specific temporary grants.
+Service credentials are reviewed separately from the employee's personal account.
+Evidence includes the approved request, granted role, completion time, and reviewer.
+Managers certify active access against current duties.
+Expired temporary grants are not renewed automatically.
+IAM records the completion time for each lifecycle change.

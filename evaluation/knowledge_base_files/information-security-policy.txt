@@ -1,0 +1,34 @@
+Information Security Policy
+Document owner: Chief Information Security Officer
+Review frequency: Annual and after a material security incident
+Classification: Internal
+
+Purpose
+This policy establishes the minimum safeguards for company information and systems. It is a policy statement, not a technical guarantee that a specific control has been deployed.
+
+Scope
+Employees, contractors, service providers, company-managed endpoints, cloud workloads, and information processed for a customer are in scope. A stricter customer or legal requirement takes precedence.
+
+Definitions and roles
+Information owner: the business lead accountable for permitted use and classification. System owner: the engineering lead accountable for secure configuration and change records. Security Operations: monitors alerts and coordinates incident triage. Users: protect credentials, use approved systems, and report suspected compromise.
+
+Policy and procedure
+Access must have a documented business purpose and be limited to the minimum role and data required. Owners review privileged access at least quarterly and ordinary access at least annually. Production changes require peer review, a recorded deployment, and a rollback plan. Data must use approved encryption in transit and at rest where supported. Secrets belong in an approved secret manager and must never be committed to source control or copied into support tickets.
+
+Exceptions
+An exception requires a named owner, business justification, compensating safeguards, expiry date, and written approval by Security. Temporary operational convenience does not waive tenant boundaries or authorization checks.
+
+Audit and review
+Access decisions, privileged changes, and approved exceptions must be traceable to an actor and time. Security reviews exceptions monthly and this policy annually.
+
+Operational controls
+Managers approve access against current duties rather than job title alone.
+System owners review privileged accounts each quarter and ordinary access annually.
+Production secrets are retrieved from the approved secret manager at runtime.
+Security Operations records incident severity, containment owner, and next review time.
+Information owners identify customer-specific handling terms before data is indexed.
+Users report suspected credential exposure through the incident channel immediately.
+Review evidence
+The annual review samples access approvals, exception expiries, and change records.
+Material policy exceptions include compensating control evidence and a named reviewer.
+Control gaps receive an owner, due date, and risk acceptance or remediation decision.

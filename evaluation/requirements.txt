@@ -1,0 +1,8 @@
+ragas==0.4.3
+datasets>=4,<5
+langchain<1
+langchain-community<0.4
+langchain-core<1
+langchain-openai<1
+huggingface-hub<1.0
+reportlab

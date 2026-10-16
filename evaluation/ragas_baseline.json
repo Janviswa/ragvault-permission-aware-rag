@@ -1,0 +1,16 @@
+{
+  "evaluation_samples": 10,
+  "metrics": 6,
+  "baseline": {
+    "faithfulness": 0.9267,
+    "context_precision": 0.8949,
+    "context_recall": 1.0,
+    "context_entity_recall": 0.6,
+    "noise_sensitivity": 0.2583,
+    "answer_relevancy": 0.8240
+  },
+  "retrieval_configuration": {
+    "limit": 5,
+    "permission_aware": true
+  }
+}

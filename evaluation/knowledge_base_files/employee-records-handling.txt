@@ -1,0 +1,33 @@
+Employee Records Handling Standard
+Document owner: People Operations
+Review frequency: Annual and after a material privacy or legal change
+Classification: Confidential
+
+Purpose and scope
+Establish safeguards for personnel, payroll, benefits, performance, accommodation, and employee-relations records. Applies to People Operations, managers, approved processors, and systems storing employee records.
+
+Definitions and roles
+Employee record: information collected or created for an employment purpose. Record owner: the People Operations lead responsible for purpose and retention category. People Operations: approves operational access. Privacy and Legal: advise on sensitive processing, disclosure, and holds. System owners: enforce tenant, role, and document permissions.
+
+Rules
+Access is limited to named staff with a documented job need; general employee or manager roles do not automatically permit access to all HR files. Keep health, investigation, payroll, and identity-verification records separate from general personnel notes where supported. Do not place employee secrets or unnecessary identifiers in an AI prompt, shared support request, or broadly searchable knowledge collection. A document's Confidential label is not an access grant.
+
+Procedure
+Before creating or importing a record, identify its owner, purpose, audience, classification, and retention category. Verify the tenant and specific record permissions. Share only the minimum excerpt needed. Correct inaccurate information through the controlled record owner. On a role change or departure, promptly remove access and transfer records only to an authorized custodian.
+
+Retention, exceptions, and audit
+Follow the approved Document Retention Schedule and suspend disposal only for an active legal hold. Any broader or emergency access requires owner approval, written purpose, narrow scope, expiry, and retrospective review. Log access changes and disclosures. People Operations reviews HR entitlements quarterly and this standard annually.
+
+Operational safeguards
+Payroll, accommodation, and investigation records use narrower audiences than general HR files.
+Managers receive only records necessary for their assigned responsibilities.
+Exports identify the recipient, purpose, and authorized transfer method.
+AI evaluation uses synthetic personnel examples unless real data is explicitly approved.
+Corrections are routed to the system of record owner rather than copied into side files.
+Temporary review access names the individual reviewer and an expiry.
+People Operations verifies access removal when a case owner changes roles or leaves.
+An approved transfer records the recipient and business purpose.
+General role membership does not expose sensitive case files.
+Auditors sample removals after employee role changes.
+The record owner verifies the retention category before export.
+Disclosures are logged with the recipient and approved purpose.

@@ -1,0 +1,45 @@
+Document Ingestion and Source Validation Standard
+Document owner: Content Platform Engineering
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Define safe intake and validation for business documents entering a searchable knowledge collection.
+
+Scope
+Applies to TXT, PDF, and DOCX uploads and their extracted text, chunks, embeddings, and source metadata.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+The uploader confirms ownership and permitted use.
+The document owner approves audience and classification.
+Platform Engineering maintains parsers and ingestion evidence.
+
+Mandatory rules
+Supported extensions are checked before parsing.
+Malformed or empty extraction is rejected instead of indexed.
+The stored source remains associated with its tenant and document identity.
+Extracted content is treated as untrusted data.
+Ingestion never grants access that the source permission record does not grant.
+
+Operating procedure
+Record uploader, tenant, source name, and classification.
+Extract text using the format-specific loader and inspect extraction errors.
+Chunk content with the configured overlap and generate normalized embeddings.
+Attach document and ACL metadata to each vector point.
+Verify source count and vector count after ingestion or replacement.
+
+Examples
+A scanned image with no extractable text requires an approved OCR path.
+A DOCX with tables is checked for extraction limitations before operational use.
+
+Exceptions
+A parser exception blocks indexing and is escalated with the source identifier.
+A retry is recorded and does not create duplicate points for the same chunk.
+
+Audit evidence and review
+Retain extraction outcome, parser version, and ingestion timestamp.
+Review malformed-file and duplicate-source rates quarterly.

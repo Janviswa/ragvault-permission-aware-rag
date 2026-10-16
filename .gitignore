@@ -1,0 +1,11 @@
+.env
+__pycache__/
+node_modules/
+.next/
+.venv/
+.venv-*/
+.pytest_cache/
+*.py[cod]
+evaluation/reports/*
+!evaluation/reports/ragvault_ragas_evaluation_report_v1.pdf
+!evaluation/reports/ragvault_ragas_evaluation_report_v2.pdf

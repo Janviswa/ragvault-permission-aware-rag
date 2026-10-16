@@ -1,0 +1,45 @@
+AI Model Change and Evaluation Standard
+Document owner: AI Governance and Platform Engineering
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Control changes to model, prompt, retrieval settings, and evaluation methodology.
+
+Scope
+Applies to RAG answer generation, RAGAS evaluators, datasets, references, and indexed evaluation sources.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+Model owners document provider and version.
+Evaluation owners preserve datasets and score provenance.
+Security validates that production authorization remains outside the model.
+
+Mandatory rules
+Do not mix evaluator models within a reported comparison set.
+Preserve completed scores and original baselines.
+Record model identity with each newly evaluated metric.
+Do not alter references or scores to manufacture a pass.
+Keep RAG quality claims separate from security assurance.
+
+Operating procedure
+Freeze question, reference, corpus, and retrieval configuration.
+Select one evaluator model for a result set.
+Run missing cases sequentially and save each metric atomically.
+Investigate low scores using retrieved context and source evidence.
+Report changed evaluation inputs and comparison limitations.
+
+Examples
+A model change creates a separately labeled result artifact.
+An evaluator override never changes the production model setting.
+
+Exceptions
+Rate-limit failures pause evaluation rather than creating placeholder values.
+Changed inputs require explicit rescore and preserve prior snapshots.
+
+Audit evidence and review
+Archive model, RAGAS version, settings, and coverage.
+Review metric status and failures before publishing a report.

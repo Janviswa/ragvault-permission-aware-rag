@@ -1,0 +1,34 @@
+Data Privacy Standard
+Document owner: Privacy Office
+Review frequency: Annual
+Classification: Confidential
+
+Purpose and scope
+Protect personal data throughout collection, indexing, retrieval, support, evaluation, and disposal.
+
+Definitions and roles
+Personal data relates to an identified or identifiable person. The business owner states the purpose. Privacy advises on lawful use and data-subject obligations. System owners apply access, minimization, retention, and incident safeguards.
+
+Rules
+Collect and process only data needed for a defined purpose. Restrict sensitive attributes to authorized roles and users. Do not place real personal data in public test fixtures or prompts unless approved and minimized. Separate tenant data and do not use another customer's content to answer a query. Honor correction, access, and deletion workflows subject to legal holds.
+
+Procedure
+Before a new AI or retrieval use, map data sources, recipients, providers, regions, retention, and deletion behavior. Mask identifiers in support and evaluation data. If personal data is sent to an unintended recipient, report it through incident response and preserve the facts needed for assessment.
+
+Exceptions
+Privacy and Legal document the basis, scope, safeguards, and expiry for exceptional processing.
+
+Audit
+Maintain processing records, access logs, and deletion evidence. Review data flows annually and after material changes. This standard complements, but does not replace, jurisdiction-specific legal advice.
+
+Privacy review procedure
+The owner records purpose, categories, recipients, provider, region, and retention.
+Only fields needed for the approved purpose enter prompts or evaluation artifacts.
+Support exports use masked identifiers and exclude authentication secrets.
+Deletion requests are coordinated with legal holds and derived-index disposal.
+Cross-tenant content is never a permitted source for answering another tenant.
+Privacy reviews changes in audience or model provider before production use.
+Unintended disclosure is routed to incident response for impact assessment.
+The owner documents whether derived text remains personal data.
+Evaluation results avoid direct identifiers unless approved.
+Deletion and correction requests are tracked to a disposition.

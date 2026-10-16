@@ -1,0 +1,34 @@
+RAGVault Engineering Architecture
+Document owner: Platform Engineering
+Review frequency: Quarterly
+Classification: Internal
+
+Purpose and scope
+Describe the RAGVault request and ingestion pipeline for engineers maintaining the service.
+
+Components
+FastAPI exposes authentication, document, permission, administration, and RAG routes. PostgreSQL stores users, tenant IDs, document content, permissions, temporary grants, access requests, audit logs, and security events. Qdrant stores embedded text chunks and metadata. The frontend calls the API through its configured public API URL. The configured language model generates an answer only after secure context construction.
+
+Ingestion
+Supported uploads are TXT, PDF, and DOCX. The loader extracts text; chunk_text currently uses 500-character chunks with 50-character overlap. Embeddings are 384-dimensional. Each Qdrant payload includes document ID, chunk index, tenant ID, classification, title, file name, text, allowed user IDs, and allowed roles. Permission synchronization updates ACL metadata without regenerating embeddings.
+
+Query path
+The production RAG route requests secure context with the pipeline's default limit of five. The RAGAS evaluation runner also defaults to five retrieved chunks. Qdrant applies tenant and user/role filters before returning candidates. The pipeline then validates each candidate using database authorization before context assembly. The LLM receives only the filtered context, and the route records a query audit event.
+
+Operations and failure modes
+Document updates require re-ingestion; permission changes require ACL synchronization. Expired or revoked access must fail the database check even if vector metadata is stale. Monitor PostgreSQL, Qdrant, model-provider errors, ingestion failures, and audit persistence.
+
+Exceptions and audit
+Do not bypass authorization to improve retrieval scores. Changes to chunking, top-k, model, or permission filters require review and a recorded evaluation. Owner: Platform Engineering; review quarterly.
+
+Implementation and operational notes
+The API validates question length and retrieval limits before embedding a query.
+Chunk identifiers are stable per document and chunk index for vector replacement.
+Ingestion stores tenant, classification, document identity, and ACL payload fields.
+Permission synchronization updates payloads without regenerating document embeddings.
+The document loader rejects unsupported extensions and malformed PDF or DOCX files.
+The RAGAS runner saves each metric atomically and skips valid saved scores on resume.
+The v2 evaluation selects a dedicated evaluator model without changing the product LLM.
+Evaluation artifacts are kept separate from production model configuration.
+The runner never substitutes a missing score with a default value.
+ACL changes are validated using both retrieval and authorization evidence.

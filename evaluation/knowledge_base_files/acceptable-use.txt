@@ -1,0 +1,34 @@
+Acceptable Use Standard
+Document owner: IT Governance
+Review frequency: Annual
+Classification: Internal
+
+Purpose and scope
+Define permitted use of company accounts, devices, networks, and knowledge applications.
+
+Roles
+Users protect company resources and report misuse. Managers explain role-specific restrictions. IT administers approved tools. Security investigates suspected abuse under approved procedures.
+
+Rules
+Use company systems for authorized work, training, and approved business purposes. Never bypass access controls, probe systems without written authorization, share credentials, or attempt to retrieve another tenant's content. Do not upload malware, secrets, or unapproved personal data. Do not treat an AI-generated answer as authoritative approval or as a substitute for source review.
+
+Procedure
+Use the approved service catalog to request software or elevated access. Verify recipients and classification before sharing content. Report suspected phishing or accidental disclosure promptly. Preserve relevant evidence and do not investigate beyond your authorization.
+
+Examples
+Searching a document you are permitted to access is acceptable; changing identifiers to test another user's permissions is not. Testing is allowed only in an explicitly authorized environment and scope.
+
+Exceptions and audit
+Security and the system owner approve scoped testing in writing with time limits and a contact. Monitoring is limited to legitimate security and operational purposes and handled according to privacy rules. Owner: IT Governance; review annually.
+
+Permitted testing and handling
+Security testing requires written authorization, defined targets, and a time window.
+A test account does not authorize access to another tenant's real customer data.
+Users report suspected exposure rather than downloading additional material to confirm it.
+Automation must respect service limits and must not bypass access-control checks.
+Public demonstrations use synthetic or specifically approved information.
+Access credentials remain personal and may not be shared with coworkers.
+Violations are referred to the responsible manager and Security for documented review.
+Testing output is stored only in the approved evidence location.
+Users do not probe resources outside the written test scope.
+Suspected accidental access is reported without further browsing.

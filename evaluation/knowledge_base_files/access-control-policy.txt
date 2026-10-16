@@ -1,0 +1,35 @@
+Access Control Policy
+Document owner: Identity and Access Management
+Review frequency: Annual
+Classification: Internal
+
+Purpose and scope
+Define how users receive, use, review, and lose access to business applications and documents. Applies to workforce identities and tenant-scoped customer workspaces.
+
+Definitions and roles
+Authentication verifies identity; authorization decides what an authenticated identity may do. A resource owner approves business access. Tenant administrators manage accounts and grants inside their own tenant. Security validates privileged-role assignments.
+
+Rules
+Deny access by default. Grant the least privilege needed for a named purpose. Use individual accounts; shared accounts require a documented exception and compensating audit controls. Role membership is not a substitute for tenant validation. A request for one document does not confer access to neighboring documents.
+
+Procedure
+The requester states the resource, purpose, role or user, and requested duration. The owner approves before access is provisioned. The provisioner records the approver and scope, verifies the tenant, and tests that unrelated resources remain inaccessible. Managers review access quarterly; account owners remove access when duties change.
+
+Revocation and exceptions
+Revocation is applied to the authoritative permission record and any retrieval ACL cache or index. The application must perform an authorization check before releasing retrieved content. Exceptions are time-bounded, approved, and reviewed.
+
+Evidence
+Record request, approval or denial, grant, change, and revoke events. Reviewers verify actor, tenant, resource, scope, and timestamp. Owner: IAM. Review frequency: annual, with quarterly access reviews.
+
+Decision and review controls
+Authorization uses the authenticated identity and authoritative tenant membership.
+User-specific and role-based grants are scoped to the individual document resource.
+Administrators cannot use a role in one tenant to cross another tenant boundary.
+Grant changes update the authoritative record before retrieval metadata is synchronized.
+The application rechecks current permission after vector search and before disclosure.
+Access reviews compare active grants with current business need and document ownership.
+Denied requests disclose neither document contents nor neighboring resource identifiers.
+Reviewers retain approval, change, and revocation evidence with timestamps.
+Reviewers sample both allowed and denied resource decisions.
+Role changes trigger a review of inherited document grants.
+Evidence is linked to the exact resource and tenant.

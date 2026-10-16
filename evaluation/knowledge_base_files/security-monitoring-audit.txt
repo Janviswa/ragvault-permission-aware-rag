@@ -1,0 +1,34 @@
+Security Monitoring and Audit Standard
+Document owner: Security Operations
+Review frequency: Annual
+Classification: Confidential
+
+Purpose and scope
+Define security event and audit evidence requirements for identity, authorization, document access, administration, and production changes.
+
+Definitions and roles
+An audit record captures a business action; a security event captures a security-relevant condition such as denied access. Security Operations monitors signals. System owners ensure events are attributable and protected.
+
+Requirements
+Record actor identity, tenant, action, target resource, outcome, and timestamp where applicable. Denials must not disclose protected content. Logs must not contain passwords, bearer tokens, API keys, or full restricted document bodies. Restrict log access and protect records against unauthorized modification. Alert on repeated denials, unexpected privileged changes, and suspicious cross-tenant attempts where telemetry supports it.
+
+Procedure
+Correlate application and infrastructure events using consistent timestamps and request identifiers. Triage an alert by preserving relevant evidence, checking tenant/resource scope, and following incident response. Validate that authorization failures produce an event and that successful sensitive changes have an audit record.
+
+Exceptions
+Sampling gaps or unavailable telemetry are documented with owner, impact, and remediation date; they are not silently treated as evidence of no incident.
+
+Audit and review
+Security reviews alert coverage quarterly and access to logs annually. Owner: Security Operations; annual policy review.
+
+Review workflow
+An audit record explains a sensitive action; a security event describes a threat signal.
+Each record uses the available actor, tenant, target, outcome, and timestamp fields.
+Repeated denials are reviewed for user error, scanning, or attempted boundary crossing.
+Log access is limited to responders with a documented operational need.
+Investigators preserve the relevant event identifiers before changing retention state.
+Audit records exclude bearer tokens, password material, and full restricted document text.
+Control owners document telemetry gaps rather than interpreting missing events as success.
+Reviewers verify that denial events do not include protected text.
+Sensitive audit access is limited to authorized investigation roles.
+Retention follows the approved evidence and privacy schedule.

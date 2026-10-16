@@ -1,0 +1,45 @@
+API Security Standard
+Document owner: API Platform
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Protect API identities, resources, inputs, and responses against unauthorized use.
+
+Scope
+Covers browser-facing and service-facing HTTP endpoints and uploaded content.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+API owners define resource authorization.
+Identity services issue and validate credentials.
+Operators monitor abuse and errors.
+
+Mandatory rules
+Authenticate protected requests.
+Authorize using server-side tenant and resource records.
+Validate lengths, ranges, types, and file formats.
+Rate limits and body-size limits protect service capacity.
+Responses exclude tokens, hashes, and inaccessible resource contents.
+
+Operating procedure
+Map endpoint to required role and tenant scope.
+Validate request schemas before database writes.
+Apply object-level checks to every identifier.
+Return stable 401, 403, 404, and 422 behavior as appropriate.
+Audit sensitive mutations without storing secrets.
+
+Examples
+An unknown document ID cannot be used to probe a neighboring tenant.
+An oversized RAG question is rejected before retrieval.
+
+Exceptions
+A versioned compatibility exception is bounded and monitored.
+Unsupported methods remain unavailable.
+
+Audit evidence and review
+Review route authorization and validation tests each release.
+Monitor repeated failures and anomalous object access.

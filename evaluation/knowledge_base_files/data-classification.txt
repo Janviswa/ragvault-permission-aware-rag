@@ -1,0 +1,34 @@
+Data Classification and Handling Standard
+Document owner: Data Governance
+Review frequency: Annual
+Classification: Internal
+
+Purpose and scope
+Provide handling rules for company and customer information wherever it is stored, transmitted, indexed, or used in an AI workflow.
+
+Definitions
+Public information is approved for unrestricted release. Internal information is non-public operational material. Confidential information could cause material harm if disclosed. Restricted information includes regulated personal data, credentials, and especially sensitive customer content.
+
+Roles
+The information owner assigns classification. System owners implement safeguards. Users follow handling restrictions. Privacy and Security advise on regulated or ambiguous data.
+
+Rules
+Use only the minimum information necessary. Internal data stays in approved workspaces. Confidential and Restricted data require explicit need-to-know authorization, encryption, and access logging. Credentials and authentication secrets must not be placed in documents intended for retrieval. Classification labels do not grant permission: tenant and document authorization still apply.
+
+Procedure and examples
+Before sharing or indexing content, confirm ownership, classification, permitted audience, and retention. A customer incident report is Confidential; a public product brochure is Public only after approval; an access token is Restricted and must be removed rather than indexed. Reclassify when purpose or sensitivity changes.
+
+Exceptions and audit
+The data owner and Security approve a documented, expiring exception with compensating controls. Sample indexed content and permissions during annual review. Owner: Data Governance; review annually.
+
+Handling decision examples
+An internal process note remains in an approved company workspace.
+A confidential customer report is available only to named authorized recipients.
+Restricted credentials are removed rather than embedded in a searchable document.
+Changing a label does not alter the tenant or document permission record.
+Before indexing, the owner confirms audience, source quality, and retention category.
+Derived text chunks inherit the source document's access boundary.
+The owner documents a reclassification decision and informs downstream custodians.
+Owners review classification when the source or audience changes.
+Derived chunks retain the source document's handling boundary.
+Misclassified material is quarantined until the owner decides.

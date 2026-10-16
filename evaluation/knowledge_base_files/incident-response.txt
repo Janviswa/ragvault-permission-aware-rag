@@ -1,0 +1,33 @@
+Incident Response Playbook
+Document owner: Security Operations
+Review frequency: Every six months and after each significant incident
+Classification: Confidential
+
+Purpose and scope
+Coordinate response to suspected compromise, unauthorized disclosure, service abuse, or loss of availability. Preserve evidence and limit harm; this playbook does not replace applicable legal notification obligations.
+
+Roles
+Any workforce member reports a suspected incident to the Security Operations channel. The incident commander assigns severity and coordinates response. System owners contain affected services. Privacy and Legal assess data and notification obligations. Communications approves external statements.
+
+Procedure
+1. Record reporter, time observed, affected system, tenant if known, and indicators; do not include unnecessary personal data in broad channels.
+2. Triage scope and severity. Preserve relevant logs and timestamps with access restricted to responders.
+3. Contain by disabling compromised identities, revoking exposed credentials, isolating affected workloads, or suspending a risky integration. Preserve evidence before destructive cleanup when safe.
+4. Eradicate the cause, restore from verified sources, and validate authorization and monitoring.
+5. The incident commander approves recovery. Record decisions, impact, owners, and follow-up actions.
+6. Conduct a lessons-learned review and track corrective actions to completion.
+
+Exceptions and audit
+Emergency containment may precede normal change approval; record rationale and review it afterward. Security Operations maintains an incident timeline and access-controlled evidence log. Review frequency is semiannual and after significant incidents.
+
+Operational decision points
+The incident commander assigns a severity, evidence custodian, and communication lead.
+Containment actions preserve forensic evidence unless immediate safety requires otherwise.
+Credential compromise triggers account restriction and supported session revocation.
+Suspected cross-tenant disclosure is escalated as a confidentiality incident.
+Recovery is accepted only after owners validate service behavior and access boundaries.
+External notification decisions are made by the authorized Legal and Privacy contacts.
+Each corrective action has an owner, risk statement, due date, and closure evidence.
+Responders avoid copying restricted evidence into broad channels.
+Containment decisions record expected service and customer impact.
+The incident owner confirms each corrective action is closed.

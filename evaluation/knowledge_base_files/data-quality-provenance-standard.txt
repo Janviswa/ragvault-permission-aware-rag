@@ -1,0 +1,45 @@
+Data Quality and Provenance Standard
+Document owner: Knowledge Operations
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Ensure searchable content is attributable, current, and suitable for its intended audience.
+
+Scope
+Applies to uploaded documents, extracted text, generated evaluation corpus, and derived chunks.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+Content owners confirm source accuracy.
+Knowledge operators maintain metadata.
+Reviewers assess stale or conflicting sources.
+
+Mandatory rules
+Every indexed source has an owner and unique identity.
+Preserve source provenance during extraction and chunking.
+Do not represent illustrative policy as adopted company policy.
+Resolve conflicting versions before broad indexing.
+Remove duplicates without dropping permission history.
+
+Operating procedure
+Check source title, date, audience, and classification.
+Compare extracted text with the original where format risks exist.
+Record superseded status and replacement reference.
+Review duplicate titles and filenames.
+Re-ingest through the authorized workflow after approval.
+
+Examples
+A PDF extraction is checked for missing pages.
+A revised policy is not presented beside a stale copy without a version label.
+
+Exceptions
+Unverified content remains quarantined from production retrieval.
+A source exception has an owner and expiry.
+
+Audit evidence and review
+Retain source checksum or version evidence where supported.
+Review stale-source reports quarterly.

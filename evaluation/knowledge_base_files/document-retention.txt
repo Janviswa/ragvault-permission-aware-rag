@@ -1,0 +1,34 @@
+Document Retention and Disposal Schedule
+Document owner: Records Management
+Review frequency: Annual
+Classification: Internal
+
+Purpose and scope
+Set lifecycle rules for business documents, extracted text, vector chunks, audit evidence, and backups. A legal hold or customer contract overrides routine deletion.
+
+Roles and definitions
+The record owner assigns a retention category. Records Management maintains the schedule. System owners ensure deletion covers primary stores, search indexes, and eligible replicas. Legal issues and releases holds.
+
+Rules and procedure
+At creation, label the record type, owner, and retention trigger. Retain only for the approved business, legal, or contractual period. At expiry, confirm there is no active hold, then delete the source document and derived indexes through the supported deletion workflow. Verify deletion and record completion. Backups age out under the approved backup lifecycle; do not claim immediate physical erasure from immutable backups.
+
+Examples
+An incident evidence package follows the incident/legal retention instruction, not the ordinary working-document schedule. A superseded policy is archived according to its controlled-record category. A derived embedding is not exempt merely because it is not human-readable.
+
+Exceptions
+Records Management and Legal approve a documented extension with reason, owner, and review date. Suspended deletion under a hold is logged and periodically revalidated.
+
+Audit
+Quarterly reports list overdue records, holds, disposal jobs, and failed index deletions. Owner: Records Management; review annually.
+
+Operational disposal controls
+The records owner identifies the governing retention category before ingestion.
+Legal holds suspend scheduled disposal only for the records in the hold scope.
+Deletion covers the source object, extracted text, and derived vector points.
+The operator records which systems were checked and any inaccessible replica.
+Immutable backup copies expire under the documented backup lifecycle.
+A deletion receipt must distinguish completed system deletion from backup aging.
+Restores reapply current retention and access policy before users can retrieve content.
+Owners re-check holds immediately before scheduled disposal.
+Deletion evidence names the source and every derived store checked.
+Restored data receives the current retention and permission rules.

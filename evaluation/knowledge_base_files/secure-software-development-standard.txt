@@ -1,0 +1,45 @@
+Secure Software Development Standard
+Document owner: Application Security
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Integrate security requirements throughout design, implementation, review, and release.
+
+Scope
+Applies to backend APIs, frontend code, evaluation utilities, infrastructure definitions, and dependencies.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+Developers own secure implementation.
+Reviewers examine trust boundaries and failure handling.
+Security advises on high-risk design changes.
+
+Mandatory rules
+Validate untrusted input at API boundaries.
+Use parameterized database access and typed schemas.
+Keep credentials in deployment secrets, never source.
+Require authorization on the server for every protected operation.
+Do not return internal exception details to users.
+
+Operating procedure
+Document data flows and trust boundaries.
+Add tests for allowed, denied, and malformed requests.
+Review dependencies and configuration changes.
+Run static checks and the focused test suite.
+Record residual risk before release.
+
+Examples
+A UI-hidden admin button still requires backend authorization.
+A validation error omits passwords and tokens from its response.
+
+Exceptions
+A security exception has an owner, compensating control, and expiry.
+Critical unresolved findings block release.
+
+Audit evidence and review
+Keep review and test evidence with the change.
+Reassess controls after material architecture changes.

@@ -1,0 +1,45 @@
+Backup and Restore Standard
+Document owner: Infrastructure Reliability
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Ensure recoverable data copies are protected and restoration is verifiable.
+
+Scope
+Applies to relational records, uploaded sources, configuration, and derived vector indexes.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+Data owners classify backup content.
+Operators run and test backups.
+Security reviews restore exposure.
+
+Mandatory rules
+Restrict backup access independently from production access.
+Protect backup transfer and storage.
+Define retention and deletion behavior.
+Do not claim immediate erasure from immutable backup media.
+Restore derived indexes only with current ACL state.
+
+Operating procedure
+Identify source of truth and recovery point.
+Restore into a controlled environment.
+Reapply tenant and document authorization metadata.
+Validate counts, integrity, and access boundaries.
+Record acceptance before production use.
+
+Examples
+A Qdrant rebuild may regenerate vectors from authorized source documents.
+A retained backup expires under its documented lifecycle.
+
+Exceptions
+A legal hold changes disposal only within the recorded scope.
+Emergency restore is monitored and reviewed.
+
+Audit evidence and review
+Record restore date, operator, source, and test results.
+Exercise recovery at the approved frequency.

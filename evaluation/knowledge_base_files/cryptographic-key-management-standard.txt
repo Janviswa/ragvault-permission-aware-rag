@@ -1,0 +1,45 @@
+Cryptographic Key Management Standard
+Document owner: Security Engineering
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Protect cryptographic keys used to secure data, communications, and service identities.
+
+Scope
+Applies to encryption keys, signing keys, API credentials, and certificates used by company services.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+Key custodians control lifecycle operations.
+Service owners request scoped key use.
+Security approves exceptional access.
+
+Mandatory rules
+Do not store keys in source control or retrieved documents.
+Limit key access to service identities and approved operators.
+Separate key material from encrypted data.
+Rotate keys after exposure or policy-defined lifecycle events.
+Log administrative key operations.
+
+Operating procedure
+Inventory key owner, purpose, scope, and rotation date.
+Provision keys through the approved secret or key manager.
+Restrict permissions to required cryptographic actions.
+Test rotation and dependent service recovery.
+Revoke and replace compromised key material.
+
+Examples
+A model provider key is a runtime secret and is not an evaluator result.
+A signing key is not reused as a database password.
+
+Exceptions
+Break-glass access is approved, time-bounded, and reviewed.
+Unavailable key management blocks sensitive processing.
+
+Audit evidence and review
+Retain rotation and revocation records without logging key values.
+Review key inventory quarterly.

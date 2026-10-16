@@ -1,0 +1,34 @@
+RAGVault Security Architecture
+Document owner: Product Security
+Review frequency: Quarterly and after authorization-path changes
+Classification: Internal
+
+Purpose and scope
+Describe the implemented security boundaries for the RAGVault FastAPI, PostgreSQL, Qdrant, and language-model request path. This description is architecture documentation; verification is provided by dedicated tests and deployment review.
+
+Identity and tenancy
+JWT authentication resolves the current user from the database; inactive users are rejected. Tenant identity and role come from that authenticated database record, not from query input. Admin authorization is checked by role dependencies. Public registration is disabled; tenant administrators create accounts within their own tenant.
+
+Retrieval boundary
+The Qdrant pre-filter requires the current tenant. For non-admin users it also requires a matching allowed user ID or role in vector metadata. This filter reduces unauthorized candidates before retrieval. It is not the sole authorization control.
+
+Defense in depth
+Every retrieved document is checked again against authoritative document, tenant, user/role permission, and active temporary-access state before context construction. Unauthorized or cross-tenant records are removed. Revocations synchronize Qdrant ACL metadata; the post-retrieval check remains necessary if metadata is stale. Only authorized text reaches the language model. Sources are built from the authorized result set.
+
+Audit and threats
+Sensitive operations create audit records; unauthorized access creates security events. Prompt-injection detection treats document instructions as untrusted and does not grant them authority. Tests cover token rejection, role checks, tenant isolation, IDOR, expiry/revoke, pre-filter shape, post-retrieval filtering, and no unauthorized LLM context.
+
+Limitations and review
+RAG quality scores do not establish authorization correctness. Security test coverage is not proof against all threats. Product Security reviews access paths, tenant filters, vector payload synchronization, and context construction quarterly.
+
+Enforcement boundaries
+JWT authentication identifies an active user before protected routes execute.
+The user's database-backed tenant and role are passed to the retrieval component.
+Qdrant filters tenant and user or role ACL metadata before returning candidate chunks.
+The authoritative permission service checks each returned document again.
+Only authorized results are formatted into the LLM context and source list.
+Permission revocation synchronizes vector metadata after the database change.
+Audit records and security events are separate evidence for sensitive actions and denials.
+The model has no authority to approve a permission or change a grant.
+A failed authorization check removes the candidate from secure context.
+Source metadata is returned only for authorized retrieved results.

@@ -1,0 +1,17 @@
+{
+  "higher_is_better_threshold": 0.7,
+  "higher_is_better_comparison": "greater_than_or_equal",
+  "threshold_applies_to": "metric_average",
+  "noise_sensitivity_threshold": 0.2,
+  "noise_sensitivity_direction": "lower_is_better",
+  "higher_is_better_metrics": [
+    "faithfulness",
+    "answer_relevancy",
+    "context_precision",
+    "context_recall",
+    "context_entity_recall"
+  ],
+  "lower_is_better_metrics": [
+    "noise_sensitivity"
+  ]
+}

@@ -1,0 +1,45 @@
+Customer Data Isolation Standard
+Document owner: Tenant Platform Engineering
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Prevent customer data from crossing tenant boundaries during storage, retrieval, administration, and response.
+
+Scope
+Applies to source documents, vector payloads, application queries, grants, and support workflows.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+Tenant owners approve membership.
+API services enforce tenant scope.
+Security reviews cross-tenant events.
+
+Mandatory rules
+Derive tenant identity from the authenticated server-side user.
+Filter vector retrieval by tenant before returning candidates.
+Check tenant and current permission after retrieval.
+Do not trust client-supplied tenant IDs.
+Do not expose unauthorized text to the LLM or response.
+
+Operating procedure
+Create tenant-scoped records and vector metadata.
+Propagate authenticated identity into retrieval.
+Test same-tenant allowed and cross-tenant denied cases.
+Revoke access in the database and synchronize ACL metadata.
+Audit denials without disclosing protected contents.
+
+Examples
+An administrator can administer only their own tenant.
+A matching user ID in a different tenant does not grant access.
+
+Exceptions
+Support access is explicitly approved, scoped, and logged.
+No operational exception may authorize cross-tenant disclosure.
+
+Audit evidence and review
+Review tenant identifiers through query and document lifecycle tests.
+Escalate unexpected cross-tenant results immediately.

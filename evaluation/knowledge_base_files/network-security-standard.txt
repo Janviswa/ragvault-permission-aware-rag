@@ -1,0 +1,45 @@
+Network Security Standard
+Document owner: Network Engineering
+Review frequency: Annual
+Classification: Internal
+
+Purpose
+Reduce unauthorized network reachability and protect service-to-service communication.
+
+Scope
+Applies to API ingress, database and vector-store paths, administrative access, and outbound integrations.
+
+Definitions
+Control owner: the role accountable for implementation and evidence.
+Exception: a documented, approved, and time-bounded deviation.
+
+Roles and responsibilities
+Network owners define trust zones.
+Service owners request flows.
+Security reviews exceptions.
+
+Mandatory rules
+Expose only documented listeners.
+Keep databases off public ingress unless explicitly approved.
+Restrict outbound paths to required dependencies.
+Use protected transport for sensitive traffic.
+Monitor administrative and anomalous connections.
+
+Operating procedure
+Inventory source, destination, port, owner, and purpose.
+Approve and implement the narrowest rule.
+Test expected connectivity and denied paths.
+Remove expired rules.
+Review changes against tenant and service boundaries.
+
+Examples
+A Docker service name resolves inside the compose network, not as an authorization control.
+A public health route returns status only.
+
+Exceptions
+Emergency access has a source restriction and expiry.
+Unnecessary open ports are removed.
+
+Audit evidence and review
+Retain network change approvals and flow evidence.
+Review exposed services quarterly.

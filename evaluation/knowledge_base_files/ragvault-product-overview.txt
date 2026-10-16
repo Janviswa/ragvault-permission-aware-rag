@@ -1,0 +1,34 @@
+RAGVault Product Overview
+Document owner: Product Management
+Review frequency: Quarterly
+Classification: Internal
+
+Purpose and scope
+RAGVault is a permission-aware retrieval-augmented generation application for searching approved enterprise documents. This overview describes the current product boundaries and is not a promise that every deployment has identical configuration.
+
+Components and definitions
+The Next.js frontend presents authentication, document management, access requests, administration, and question-and-answer screens. FastAPI provides the API. PostgreSQL stores users, tenant identifiers, source documents, grants, access requests, and audit records. Qdrant stores embedded chunks and retrieval metadata. The configured language model drafts answers from authorized retrieved context.
+
+Roles and workflow
+An administrator provisions tenant accounts and manages documents and grants. A user signs in, submits a question, and receives an answer with source documents where authorized results exist. Administrators can review access requests and security/audit views. A product administrator's authority remains inside the administrator's tenant.
+
+Document lifecycle
+Administrators can upload TXT, PDF, and DOCX sources. The service extracts text, divides it into chunks, creates embeddings, and indexes them with tenant and ACL metadata. Permission-aware retrieval applies filters before vector search and a second authoritative authorization check before model context construction. Updates and deletions must use the supported document workflow so stored text and vectors remain consistent.
+
+Security and limitations
+The model is not an identity provider, access approver, or source of authorization decisions. Retrieved content is untrusted and cannot override system instructions. Answers may be incomplete or incorrect; users should inspect cited sources. RAGAS measures answer and retrieval quality, not authorization security. Tenant isolation, access revocation, and leakage prevention require dedicated security tests.
+
+Exceptions and audit
+Use only approved tenant content and models. Product changes to indexing, retrieval, context construction, or permissions require engineering and security review. Sensitive administration and question activity are recorded where the API audit path supports it. Owner: Product Management; review quarterly.
+
+User-visible boundaries
+The interface presents documents and sources returned by the authorized API response.
+The frontend is not the security boundary; every operation is authorized by the backend.
+A missing source does not imply that a user may request another tenant's content.
+Administrators manage users and documents only within their own tenant scope.
+Access requests record an intended resource and require authorized review before grant.
+Audit and security panels display records returned by protected administrative endpoints.
+Product availability and model responses depend on the configured deployment services.
+The API remains authoritative when client state or UI controls are stale.
+Unavailable model output does not change document authorization.
+Users can distinguish an answer from its listed source records.
