@@ -198,6 +198,8 @@ def list_documents(
             "file_name": document.file_name,
             "classification": document.classification,
             "created_at": document.created_at,
+            "summary": " ".join((document.content or "")[:600].split())[:240],
+            "word_count": len((document.content or "").split()),
         }
         for document in accessible_documents
     ]

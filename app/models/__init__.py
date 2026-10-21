@@ -9,3 +9,4 @@ from app.models.role import Role
 from app.models.user_role import UserRole
 from app.models.document_permission import DocumentPermission
 from app.models.temporary_access import TemporaryAccess
+from app.models.chat import Chat, ChatMessage

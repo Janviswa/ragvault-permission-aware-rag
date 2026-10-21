@@ -16,6 +16,9 @@ from app.admin.access_requests import router as admin_access_requests_router
 from app.admin.security import router as admin_security_router
 from app.admin.audit import router as admin_audit_router
 from app.admin.users import router as admin_users_router
+from app.admin.analytics import router as admin_analytics_router
+from app.chats.routes import router as chats_router
+from app.me.routes import router as me_router
 from app.rag.routes import router as rag_router
 from app.documents.upload import router as upload_router
 
@@ -31,6 +34,9 @@ app.include_router(admin_access_requests_router)
 app.include_router(admin_security_router)
 app.include_router(admin_audit_router)
 app.include_router(admin_users_router)
+app.include_router(admin_analytics_router)
+app.include_router(chats_router)
+app.include_router(me_router)
 app.include_router(rag_router)
 app.include_router(upload_router)
 

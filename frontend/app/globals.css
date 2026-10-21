@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Theme tokens (space-separated RGB so Tailwind opacity modifiers work) */
+/* ------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+  --c-ink: 27 33 64;
+  --c-graphite: 69 76 110;
+  --c-ash: 100 106 137;
+  --c-fog: 227 231 245;
+  --c-mist: 242 244 252;
+  --c-line: 217 222 242;
+  --c-surface: 255 255 255;
+  --c-canvas: 248 249 254;
+  --c-accent: 79 99 210;
+
+  --shadow-soft: 0 10px 40px -14px rgba(84, 100, 190, 0.28);
+  --shadow-lift: 0 2px 10px -2px rgba(84, 100, 190, 0.25);
+
+  --bg-top: #d3ebf0;
+  --bg-mid: #e0e6f6;
+  --bg-bottom: #d8d0f1;
+  --bg-base: #dfe3f6;
+  --bg-grid: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --c-ink: 233 236 255;
+  --c-graphite: 191 198 230;
+  --c-ash: 152 160 198;
+  --c-fog: 55 61 104;
+  --c-mist: 40 46 86;
+  --c-line: 66 73 120;
+  --c-surface: 31 36 72;
+  --c-canvas: 17 20 44;
+  --c-accent: 170 184 255;
+
+  --shadow-soft: 0 14px 44px -16px rgba(0, 0, 0, 0.7);
+  --shadow-lift: 0 2px 12px -2px rgba(0, 0, 0, 0.55);
+
+  --bg-top: #0b0e21;
+  --bg-mid: #121634;
+  --bg-bottom: #1a1640;
+  --bg-base: #0f1228;
+  --bg-grid: rgba(150, 165, 255, 0.05);
+}
+
+html, body { height: 100%; }
+body {
+  @apply font-sans text-ink antialiased;
+  font-feature-settings: "tnum" 1;
+  background-color: var(--bg-base);
+  background-image:
+    linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 48%, var(--bg-bottom) 100%);
+  background-size: 28px 28px, 28px 28px, 100% 100%;
+  background-attachment: fixed;
+}
+
+.login-grid-background {
+  background-color: var(--bg-base);
+  background-image:
+    linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 48%, var(--bg-bottom) 100%);
+  background-size: 28px 28px, 28px 28px, 100% 100%;
+}
+
+:focus-visible { outline: 2px solid rgb(var(--c-accent)); outline-offset: 2px; }
+
+@layer components {
+  /* ---------- surfaces ---------- */
+  .glass { @apply border border-white/80 bg-white/55 shadow-soft backdrop-blur-xl dark:border-[rgb(255_255_255/0.08)]; }
+  .panel { @apply glass rounded-[24px]; }
+  .card  { @apply glass rounded-2xl; }
+  .panel-head { @apply flex flex-wrap items-center justify-between gap-3 border-b border-fog px-5 py-4; }
+  .row { @apply border-b border-fog last:border-b-0; }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-transparent px-4 py-2 text-sm font-semibold
+           transition disabled:cursor-not-allowed disabled:opacity-45;
+  }
+  .btn-solid { @apply btn bg-gradient-to-br from-[#5468d8] to-[#7660d4] text-onaccent shadow-lift hover:brightness-90; }
+  .btn-line  { @apply btn border-line bg-white/70 text-ink hover:border-periwinkle hover:bg-white; }
+  .btn-quiet { @apply inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-ink hover:bg-white/70 disabled:opacity-45; }
+  .btn-sm { @apply px-3 py-1.5 text-[13px]; }
+
+  /* ---------- form controls ---------- */
+  .field {
+    @apply w-full rounded-xl border border-line bg-white/85 px-3.5 py-2.5 text-sm text-ink placeholder:text-ash
+           transition focus:border-periwinkle-deep dark:focus:border-accent;
+  }
+  .field:disabled { @apply bg-mist text-ash; }
+  .label { @apply mb-1.5 block text-[13px] font-semibold text-ink; }
+  .hint { @apply text-[13px] text-ash; }
+
+  /* ---------- notices ---------- */
+  .note { @apply mb-4 flex items-start gap-2.5 rounded-xl border px-3.5 py-2.5 text-sm; }
+  .note-error   { @apply border-[#f2b8c3] bg-[#fdecef] text-[#8a1c2f] dark:border-[#7b2a3c] dark:bg-[#3a1823] dark:text-[#ffb3c1]; }
+  .note-success { @apply border-[#a8dfc0] bg-[#e8f8ef] text-[#11613a] dark:border-[#256b4a] dark:bg-[#12332a] dark:text-[#9be8bf]; }
+  .note-info    { @apply border-[#c9d3f8] bg-[#eef1fd] text-ink dark:border-[#3b4690] dark:bg-[#1e2552]; }
+  .note-warn    { @apply border-[#f0d28a] bg-[#fff7e1] text-[#5c3b00] dark:border-[#6b5420] dark:bg-[#33290f] dark:text-[#f6dc9a]; }
+
+  /* ---------- chips ---------- */
+  .chip { @apply inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-semibold leading-5; }
+  .chip-solid  { @apply chip border-transparent bg-periwinkle-deep text-onaccent; }
+  .chip-line   { @apply chip border-periwinkle-deep bg-white/80 text-accent dark:border-accent; }
+  .chip-soft   { @apply chip border-fog bg-mist text-graphite; }
+  .chip-dark   { @apply chip border-transparent bg-[#1b2140] text-onaccent dark:bg-[#0b0e21] dark:border-[rgb(255_255_255/0.15)]; }
+  .chip-strike { @apply chip border-transparent bg-[#fde7ea] text-[#8a1c2f] dark:bg-[#4a1d29] dark:text-[#ffb3c1]; }
+  .chip-good   { @apply chip border-transparent bg-[#dff4e8] text-[#11613a] dark:bg-[#143a2c] dark:text-[#9be8bf]; }
+  .chip-wait   { @apply chip border-transparent bg-[#fbf1c4] text-[#6b5200] dark:bg-[#40340f] dark:text-[#f6dc9a]; }
+  .chip-sky    { @apply chip border-transparent bg-[#dff1f7] text-[#0f4c5e] dark:bg-[#13394a] dark:text-[#a5e3f5]; }
+  .chip-lav    { @apply chip border-transparent bg-[#ebe6fb] text-[#43309a] dark:bg-[#2c2760] dark:text-[#cfc4ff]; }
+  .chip-alert  { @apply chip border-transparent bg-[#b4233c] text-onaccent; }
+
+  /* ---------- tabs ---------- */
+  .tab { @apply rounded-full border border-line bg-white/70 px-4 py-1.5 text-sm font-semibold text-ink hover:bg-white; }
+  .tab-on { @apply border-transparent bg-periwinkle-deep text-onaccent hover:bg-periwinkle-deep; }
+
+  /* ---------- tables ---------- */
+  .th { @apply px-5 py-3 text-left text-[13px] font-semibold text-ash; }
+  .td { @apply px-5 py-3.5 align-middle text-sm; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
+}

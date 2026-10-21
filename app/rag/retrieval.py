@@ -49,3 +49,22 @@ def search_documents(
         limit=limit,
         with_payload=True,
     ).points
+
+
+def search_tenant_documents(query: str, tenant_id: str, limit: int = 5):
+    """Tenant-scoped search that does NOT apply the user ACL filter.
+
+    Only ever use this to decide *whether* something relevant exists that the
+    caller cannot read. Never pass its payload text to the language model or
+    return it to the client.
+    """
+    query_embedding = generate_embedding(query)
+    return get_client().query_points(
+        collection_name=COLLECTION_NAME,
+        query=query_embedding,
+        query_filter=Filter(
+            must=[FieldCondition(key="tenant_id", match={"value": tenant_id})]
+        ),
+        limit=limit,
+        with_payload=True,
+    ).points

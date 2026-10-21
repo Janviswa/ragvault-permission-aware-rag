@@ -27,5 +27,5 @@ def request_access(document_id: int, request: AccessRequestCreate, db: Session =
     db.add(access_request)
     db.commit()
     db.refresh(access_request)
-    create_audit_log(db, current_user.id, current_user.tenant_id, "access_request_submitted", "access_request", access_request.id)
+    create_audit_log(db, current_user.id, current_user.tenant_id, "access_request_submitted", "access_request", access_request.id, details=f"document={document_id}")
     return {"message": "Access request submitted", "request_id": access_request.id}
