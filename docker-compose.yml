@@ -21,6 +21,14 @@ services:
       postgres: {condition: service_healthy}
       qdrant: {condition: service_started}
     ports: ["8000:8000"]
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Baked in at build time; this is the address the *browser* uses to reach the API.
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    depends_on: [backend]
+    ports: ["3000:3000"]
 volumes:
   pgdata:
   qdrantdata:
